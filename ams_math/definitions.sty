@@ -1,0 +1,133 @@
+% ============================================
+% These are global definitions for our papers.
+\NeedsTeXFormat{LaTeX2e}[1999/12/01]
+\ProvidesPackage{definitions}
+
+% ===============
+% Global packages
+
+\linespread{1} % Simple line spacing in the document  
+\parskip 5pt % Paragraph spacing
+\usepackage{fullpage} % This package sets all 4 margins to be either 1 inch or 1.5 cm, and specifies the page style. 
+\usepackage{hyperref} % Hyperlinks
+\usepackage{graphicx}% Graphics, ex. \includegraphics
+\usepackage{xcolor}% Obviously for colors, This package is better than the similar package colors
+\usepackage{fancybox} % Several different styles of boxes
+\usepackage{tikz} % Drawing package
+\usetikzlibrary{arrows,decorations.markings} % these packages enhance tiks behaviour 
+\usepackage[tikz]{mdframed} % For drawing frames 
+\usepackage{framed} % shaded box is defined in this package
+\usepackage{caption,subcaption} % Well... it is obvious
+\usepackage{marginnote} %  used instead of \marginpar where \marginpar cannot be used
+\usepackage{todonotes} %  used instead of \marginpar where \marginpar cannot be used
+\usepackage{microtype} % Makes the typing neater 
+\usepackage{cite,mcite} % the package cite improves citations, for example, [5,6,7,8] becomes [5-8].  
+\usepackage{manfnt} % \dbend and other symbols
+\usepackage{stmaryrd} % this package defines the double struck brackets \llbracket and \rrbracket 
+\usepackage{xfrac}%it defines the nice \sfrac{}{}
+\usepackage{amsthm,mathtools,amssymb,amsmath} % AMS math typesetting packages. The package mathtools is better than amsmath. 
+\usepackage{bbold} % bbold math family, ex. \mathbb{1}
+\usepackage{tikz-cd} % tckz for commutative diagrams
+\usepackage{ytableau} % Young diagrams
+\usepackage{bm} % Bold fonts. I can use with greek letters and it is better for mathmode.
+\usepackage{mathrsfs} % Math script, mathscr, that does not overwrite \mathcal 
+\usepackage{moreverb} % This package improves the verbatim.  
+
+% ===============
+% Global theorems
+
+\newtheorem{theorem}{Theorem} 
+\newtheorem{lemma}{Lemma}[theorem]
+\newtheorem{claim}{Claim}[theorem]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{remark}{Remark}
+\newtheorem{proposition}{Proposition}
+\newtheorem{conjecture}{Conjecture}
+\newtheorem{definition}{Definition}
+
+
+% ============
+% Framed Boxes
+
+	% Type 1: Round squares with title in the top 
+
+\newenvironment{itembox}[1]{\begin{mdframed}[
+		roundcorner=10pt,
+		frametitlefont=\normalfont,
+		frametitleaboveskip=\dimexpr-0.7\baselineskip,skipabove=\topskip,
+		innertopmargin=\dimexpr-0.65\baselineskip,
+		innerbottommargin=\dimexpr0.65\baselineskip,
+		frametitle={\tikz{\node[anchor=base,rectangle,fill=white] {\strut #1};}}]}
+	{\end{mdframed}}
+
+	% Type 2: Round squares with yellow background in the top 
+
+\newenvironment{roundbox}[1]{\begin{mdframed}[
+		outerlinewidth=1, 
+		roundcorner = 10pt,
+		userdefinedwidth=2.3cm,
+		align=center,
+		backgroundcolor = light-yellow,
+		outerlinecolor = MyDarkBlue,
+		innertopmargin = \topskip, 
+		splittopskip = \topskip]}
+	{\end{mdframed}}
+
+	% Type 3: Round squares with yellow background in the top
+
+\newenvironment{resultbox}[1]{\begin{mdframed}[
+		outerlinewidth=1, 
+		roundcorner = 10pt,
+		align=center,
+		backgroundcolor = shadecolor,
+		outerlinecolor = MyDarkBlue,
+		innertopmargin=\dimexpr-0.65\baselineskip,
+		innertopmargin = \topskip, 
+		splittopskip = \topskip]}
+	{\end{mdframed}}
+
+	
+% ======
+% Colors 
+% It accepts integer values in the interval [0,255] == divide the value by 255 to get in the interval [0,1]
+
+\definecolor{MyDarkBlue}{rgb}{0.15,0.15,0.45}
+\definecolor{shadecolor}{rgb}{0.85,0.85,0.85}
+\definecolor{light-blue}{rgb}{0.15,0.15,0.65}
+\definecolor{light-yellow}{rgb}{1,0.98,0.73}
+\definecolor{link-blue}{rgb}{0.15,0.15,0.65}
+\definecolor{link-red}{rgb}{0.8,0.15,0.1}
+\definecolor{link-green}{rgb}{0.15,0.50,0.15}
+\definecolor{link}{rgb}{0.45,0.18,0.22}
+
+
+% ======
+% Macros 
+% This final section is all about macros. I should replace all the macros below by vim snippets and avoid these macros.
+% Unfortunately, I still have some documents that use the macros below, so I leave them here for now.  
+
+
+\def\normord{{\scriptstyle {{\bullet}\atop{\bullet}}}}
+\def\red{\textcolor{red}}
+\def\blue{\textcolor{blue}}
+\def\purple{\textcolor{purple}}
+\def\violet{\textcolor{violet}}
+\def\cyan{\textcolor{cyan}}
+\def\magenta{\textcolor{magenta}}
+
+\newcommand{\Comment}[1]{{}} % It seems that the package verbatim defines a comment environment. 
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\bse}{\begin{subequations}}
+\newcommand{\ese}{\end{subequations}}
+\newcommand{\dd}{\mathrm{d}}
+\newcommand{\nn}{\nonumber}
+\newcommand{\Tr}{\textrm{Tr}}
+\newcommand{\sign}{\operatorname{sign}}
+\newcommand{\diag}{\operatorname{diag}}
+\newcommand{\card}{\operatorname{Card.}}
+
+\DeclarePairedDelimiter{\bra}{\langle}{\rvert}
+\DeclarePairedDelimiter{\ket}{\lvert}{\rangle}
+\DeclarePairedDelimiterX{\bracket}[2]{\langle}{\rangle}{#1\vert#2}
+\DeclarePairedDelimiterX{\bbracket}[2]{\langle\!\langle}{\rangle\!\rangle}{#1\vert#2}
