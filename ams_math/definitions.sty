@@ -14,7 +14,6 @@
 \RequirePackage{tikz} % Drawing package
 \RequirePackage[tikz]{mdframed} % For drawing frames
 \RequirePackage{framed} % Shaded box is defined in this package. I am not sure if I can remove this package because mdframed seems to be better. Leave it here for a while.
-\RequirePackage[tikz]{mdframed} % For drawing frames
 \RequirePackage{caption,subcaption} % Well... it is obvious
 \RequirePackage{marginnote} %  used instead of \marginpar where \marginpar cannot be used
 \RequirePackage{todonotes} %  used instead of \marginpar where \marginpar cannot be used
@@ -103,15 +102,6 @@
 % Macros
 % This final section is all about macros. I should replace all the macros below by vim snippets and avoid these macros.
 % Unfortunately, I still have some documents that use the macros below, so I leave them here for now.
-
-
-\def\normord{{\scriptstyle {{\bullet}\atop{\bullet}}}}
-\def\red{\textcolor{red}}
-\def\blue{\textcolor{blue}}
-\def\purple{\textcolor{purple}}
-\def\violet{\textcolor{violet}}
-\def\cyan{\textcolor{cyan}}
-\def\magenta{\textcolor{magenta}}
 
 \newcommand{\Comment}[1]{{}}
 \newcommand{\be}{\begin{equation}}
