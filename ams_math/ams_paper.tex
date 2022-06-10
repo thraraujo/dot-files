@@ -1,10 +1,14 @@
 \documentclass[a4paper,11pt]{amsart}
 
-\pdfoutput=1 
-
 % ========================================================================
 
 \usepackage{definitions}
+
+\usepackage[T1]{fontenc} 
+% A different subject is the fontenc, which is related to the output. With this package, the output is better defined. 
+% As of 2018, LaTeX started using UTF-8 as encoding, so it is not necessary to add \usepackage[utf8]{inputenc} in the preamble. 
+% See more here: https://tex.stackexchange.com/questions/412757/do-i-need-to-use-usepackaget1fontenc-if-i-use-lualatex
+% Both packages are meaningless if we are using lualatex. In this case, we can use some if-then conditions to see which compiler we are using. 
 
 \hypersetup{
 	pdftitle={integrable systems, programming and so on},
@@ -13,7 +17,6 @@
 	pdfkeywords={gauge; susy; strings; fields; cft; python},
 	colorlinks=true,linkcolor=link,citecolor=link,urlcolor=link,linktocpage
 }
-
 
 \begin{document}
 
