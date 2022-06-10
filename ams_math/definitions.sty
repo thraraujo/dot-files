@@ -6,32 +6,29 @@
 % ===============
 % Global packages
 
-\linespread{1} % Simple line spacing in the document
-\parskip 5pt % Paragraph spacing
-\usepackage{fullpage} % This package sets all 4 margins to be either 1 inch or 1.5 cm, and specifies the page style.
-\usepackage{hyperref} % Hyperlinks
-\usepackage{graphicx}% Graphics, ex. \includegraphics
-\usepackage{xcolor}% Obviously for colors, This package is better than the similar package colors
-\usepackage{fancybox} % Several different styles of boxes
-\usepackage{tikz} % Drawing package
-\usetikzlibrary{arrows,decorations.markings} % these packages enhance tiks behaviour
-\usepackage[tikz]{mdframed} % For drawing frames
-\usepackage{framed} % shaded box is defined in this package
-\usepackage{caption,subcaption} % Well... it is obvious
-\usepackage{marginnote} %  used instead of \marginpar where \marginpar cannot be used
-\usepackage{todonotes} %  used instead of \marginpar where \marginpar cannot be used
-\usepackage{microtype} % Makes the typing neater
-\usepackage{cite,mcite} % the package cite improves citations, for example, [5,6,7,8] becomes [5-8].
-\usepackage{manfnt} % \dbend and other symbols
-\usepackage{stmaryrd} % this package defines the double struck brackets \llbracket and \rrbracket
-\usepackage{xfrac}%it defines the nice \sfrac{}{}
-\usepackage{amsthm,mathtools,amssymb,amsmath} % AMS math typesetting packages. The package mathtools is better than amsmath.
-\usepackage{bbold} % bbold math family, ex. \mathbb{1}
-\usepackage{tikz-cd} % tckz for commutative diagrams
-\usepackage{ytableau} % Young diagrams
-\usepackage{bm} % Bold fonts. I can use with greek letters and it is better for mathmode.
-\usepackage{mathrsfs} % Math script, mathscr, that does not overwrite \mathcal
-\usepackage{moreverb} % This package improves the verbatim.
+\RequirePackage{fullpage} % This package sets all 4 margins to be either 1 inch or 1.5 cm, and specifies the page style.
+\RequirePackage{hyperref} % Hyperlinks
+\RequirePackage{graphicx}% Graphics, ex. \includegraphics
+\RequirePackage{xcolor}% Obviously for colors, This package is better than the similar package colors
+\RequirePackage{fancybox} % Several different styles of boxes
+\RequirePackage{tikz} % Drawing package
+\RequirePackage[tikz]{mdframed} % For drawing frames
+\RequirePackage{framed} % Shaded box is defined in this package. I am not sure if I can remove this package because mdframed seems to be better. Leave it here for a while.
+\RequirePackage{caption,subcaption} % Well... it is obvious
+\RequirePackage{marginnote} %  used instead of \marginpar where \marginpar cannot be used
+\RequirePackage{todonotes} %  used instead of \marginpar where \marginpar cannot be used
+\RequirePackage{microtype} % Makes the typing neater
+\RequirePackage{cite,mcite} % the package cite improves citations, for example, [5,6,7,8] becomes [5-8].
+\RequirePackage{manfnt} % \dbend and other symbols
+\RequirePackage{stmaryrd} % this package defines the double struck brackets \llbracket and \rrbracket
+\RequirePackage{xfrac}%it defines the nice \sfrac{}{}
+\RequirePackage{amsthm,mathtools,amssymb,amsmath} % AMS math typesetting packages. The package mathtools is better than amsmath.
+\RequirePackage{bbold} % bbold math family, ex. \mathbb{1}
+\RequirePackage{tikz-cd} % tckz for commutative diagrams
+\RequirePackage{ytableau} % Young diagrams
+\RequirePackage{bm} % Bold fonts. I can use with greek letters and it is better for mathmode.
+\RequirePackage{mathrsfs} % Math script, mathscr, that does not overwrite \mathcal
+\RequirePackage{moreverb} % This package improves the verbatim.
 
 % ===============
 % Global theorems
