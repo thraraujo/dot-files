@@ -10,6 +10,9 @@
 % See more here: https://tex.stackexchange.com/questions/412757/do-i-need-to-use-usepackaget1fontenc-if-i-use-lualatex
 % Both packages are meaningless if we are using lualatex. In this case, we can use some if-then conditions to see which compiler we are using. 
 
+% Compilation with LaTeX : latexmk -pdf file.tex or pdflatex file.tex
+% Compilation with LuaLaTeX : latexmk -pdflatex=lualatex -pdf file.tex 
+
 \hypersetup{
 	pdftitle={integrable systems, programming and so on},
 	pdfsubject={High Energy Physics, Python and so on},
