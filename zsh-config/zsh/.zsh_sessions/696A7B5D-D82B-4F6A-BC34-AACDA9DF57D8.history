@@ -1,0 +1,21 @@
+cd .config/zsh
+ls
+nvim .zshrc
+neofetch
+figlet Zsh Config
+ls -1
+cd Documents/Teaching/
+ranger
+uptime
+/Users/thiago/Documents/Teaching\
+
+cd /Users/thiago/Documents/Teaching\
+
+cd /Users/thiago/Documents/Teaching\
+
+ranger
+rg
+neofetch
+alias 
+rg 
+exit

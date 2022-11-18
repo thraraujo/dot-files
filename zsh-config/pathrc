@@ -1,0 +1,8 @@
+# This path is related to Cargo, the package manager of Rust
+export PATH="/Users/thiago/.cargo/bin:$PATH"
+
+# Path to Neovim installed with homebrew 
+export PATH="/usr/local/Cellar/neovim/0.8.1/bin:$PATH"
+
+# Path to my script 
+export PATH="/Users/thiago/.scripts:$PATH"

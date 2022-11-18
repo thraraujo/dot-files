@@ -1,0 +1,9 @@
+alias ls="ls -G"
+alias ll="ls -l"
+alias lsd="ls -d */"
+alias ltc="latexmk -pdf"
+alias rena="rename -f 'y/A-Z/a-z/' * && rename -f 'y/_/-/' * && rename -f 'y/ /-/' * && rename -f 'y/,/-/' *"
+alias rm="trash"
+alias ..="cd .."
+alias -s org=nvim
+alias -s toml=nvim
