@@ -6,3 +6,6 @@
 
 # Path to my script 
 # export PATH="/Users/thiago/.scripts:$PATH"
+
+# Path to my lvim
+export PATH="/$HOME/.local/bin:$PATH"

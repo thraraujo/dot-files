@@ -3,6 +3,7 @@ alias rena="rename -f 'y/A-Z/a-z/' * && rename -f 'y/_/-/' * && rename -f 'y/ /-
 
 alias rm='trash'
 alias ..='cd ..'
+alias nvim='lvim'
 
 alias pbcopy='xclip -selection clipboard'
 alias pbpaste='xclip -selection clipboard -o'

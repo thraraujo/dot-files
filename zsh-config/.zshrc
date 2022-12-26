@@ -46,7 +46,7 @@ _comp_options+=(globdots)		# Include hidden files.
 # Load aliases, shortcuts (and keybindings) and paths if existent.
 # [ -f "$HOME/.config/dot-files/zsh-config/shortcutrc" ] && source "$HOME/.config/dot-files/zsh-config/shortcutrc"
 [ -f "$HOME/.config/dot-files/zsh-config/aliasrc" ] && source "$HOME/.config/dot-files/zsh-config/aliasrc"
-# [ -f "$HOME/.config/dot-files/zsh-config/pathrc" ] && source "$HOME/.config/dot-files/zsh-config/pathrc"
+[ -f "$HOME/.config/dot-files/zsh-config/pathrc" ] && source "$HOME/.config/dot-files/zsh-config/pathrc"
 
 
 # Load Neofetch
