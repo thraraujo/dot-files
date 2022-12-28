@@ -56,4 +56,4 @@ neofetch
 eval "$(starship init zsh)"
 
 # Load zsh-syntax-highlighting
-source $HOME/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $HOME/.config/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
