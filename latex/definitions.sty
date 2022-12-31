@@ -1,0 +1,52 @@
+% ============================================
+% These are global definitions for our papers.
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{definitions}[2022/12/31 Definitions]
+
+%%%%%%%%%%%%%%%%%%%%%%%% 
+% FUNDAMENTAL PACKAGES 
+%%%%%%%%%%%%%%%%%%%%%%%% 
+\RequirePackage[textwidth = 460 pt, textheight = 700 pt]{geometry}
+\RequirePackage{graphicx} % Enhanced graphics package. Includes \includegraphics
+\RequirePackage{mathtools} % should use this package instead amsmath
+\RequirePackage{bm} % Some enhanced math boldface
+
+%%%%%%%%%%%%%%%%%%%%%%%% 
+% LUALTEX & FONTS
+%%%%%%%%%%%%%%%%%%%%%%%% 
+\RequirePackage{fontspec} % For fonts management
+\RequirePackage{polyglossia} % Babel replacement
+\RequirePackage{luacode} % help to include lua snippets in the file 
+\RequirePackage{fontawesome5, academicons} % A neat list of symbols
+
+%%%%%%%%%%%%%%%%%%%%%%%% 
+% HYPERLINKS & COLORS
+%%%%%%%%%%%%%%%%%%%%%%%% 
+\RequirePackage{xcolor} % enhanced color package
+\RequirePackage{hyperref}
+\hypersetup{ % Official manual defines the options
+	pdftitle={integrable systems, programming and so on},
+	pdfsubject={High Energy Physics and so on}, 
+	pdfauthor={author},
+	pdfkeywords={gauge; susy; strings; fields; cft; python},
+	colorlinks=true, % false: color frames ; true: color links
+  linkcolor=myBlue, % Color of internal links (sections, pages and so on)
+  citecolor=myRed, % color for bibliographical citations
+  urlcolor=myPurple, % color for linked URL
+  linktocpage=true % link page to table of contents
+  }
+
+%%%%%%%%%%%%%%%%%%%%%%%% 
+% OTHER PACKAGES
+%%%%%%%%%%%%%%%%%%%%%%%% 
+\RequirePackage[en-US, showisoZ=false, showseconds=false]{datetime2} %datetime is obsolete
+\RequirePackage{tasks} % package to define lists. Interesting layouts
+
+%%%%%%%%%%%%%%%%%%%%%%%% 
+% COLORS
+%%%%%%%%%%%%%%%%%%%%%%%% 
+% see palette here: https://github.com/enkia/tokyo-night-vscode-theme
+\definecolor{myPurple}{RGB}{90,74,120}
+\definecolor{myGreen}{RGB}{72,94,48}
+\definecolor{myRed}{RGB}{140,67,81}
+\definecolor{myBlue}{RGB}{15,75,110}
