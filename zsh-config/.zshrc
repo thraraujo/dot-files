@@ -5,6 +5,12 @@
 # /____|___/_| |_|  \____\___/|_| |_|_| |_|\__, |
 #                                          |___/
 
+
+## case insensitive path-completion
+autoload -Uz +X compinit && compinit
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
+zstyle ':completion:*' menu select
+
 # Vim Mode
 
 # I add the following part to use some vim commands. See this in command line editing in the Linux Bible, page 73. 
