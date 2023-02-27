@@ -5,10 +5,12 @@
 # /____|___/_| |_|  \____\___/|_| |_|_| |_|\__, |
 #                                          |___/
 
+if [ $HOST = 'thiago-thinkpad' ]; then 
 # the following commands make the capslock an additional escape and change the 
 # repetition rate
-setxkbmap -option caps:escape 
-xset r rate 200 25
+  setxkbmap -option caps:escape 
+  xset r rate 200 25
+fi
 
 ## case insensitive path-completion
 autoload -Uz +X compinit && compinit

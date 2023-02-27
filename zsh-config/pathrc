@@ -3,4 +3,3 @@ export PATH="$HOME/.local/bin:$PATH"
 
 # Path Latex 
 export PATH="/usr/local/texlive/2022/bin/x86_64-linux:$PATH"
-usr/local/texlive/2022/bin
