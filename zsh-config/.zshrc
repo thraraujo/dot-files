@@ -5,6 +5,10 @@
 # /____|___/_| |_|  \____\___/|_| |_|_| |_|\__, |
 #                                          |___/
 
+# the following commands make the capslock an additional escape and change the 
+# repetition rate
+setxkbmap -option caps:escape 
+xset r rate 200 25
 
 ## case insensitive path-completion
 autoload -Uz +X compinit && compinit
