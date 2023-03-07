@@ -5,13 +5,6 @@
 # /____|___/_| |_|  \____\___/|_| |_|_| |_|\__, |
 #                                          |___/
 
-# if [ $HOST = 'thiago-thinkpad' ]; then 
-# # the following commands make the capslock an additional escape and change the 
-# # repetition rate
-#   setxkbmap -option caps:escape 
-#   xset r rate 200 25
-# fi
-
 ## case insensitive path-completion
 autoload -Uz +X compinit && compinit
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
@@ -54,12 +47,10 @@ _comp_options+=(globdots)		# Include hidden files.
 # Fuzzy finder configuration
 # [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-
 # Load aliases, shortcuts (and keybindings) and paths if existent.
 # [ -f "$HOME/.config/dot-files/zsh-config/shortcutrc" ] && source "$HOME/.config/dot-files/zsh-config/shortcutrc"
 [ -f "$HOME/.config/dot-files/zsh-config/aliasrc" ] && source "$HOME/.config/dot-files/zsh-config/aliasrc"
 [ -f "$HOME/.config/dot-files/zsh-config/pathrc" ] && source "$HOME/.config/dot-files/zsh-config/pathrc"
-
 
 # Load Neofetch
 neofetch
