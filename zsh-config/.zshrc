@@ -53,7 +53,7 @@ _comp_options+=(globdots)		# Include hidden files.
 [ -f "$HOME/.config/dot-files/zsh-config/pathrc" ] && source "$HOME/.config/dot-files/zsh-config/pathrc"
 
 # Load Neofetch
-neofetch
+# neofetch
 
 # load starship prompt
 eval "$(starship init zsh)"
