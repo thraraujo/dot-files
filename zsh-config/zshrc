@@ -30,7 +30,7 @@ bindkey -v '^?' backward-delete-char
 
 # Enable colors and change prompt:
 autoload -U colors && colors
-# PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}%b~%b "
+PS1="%B%{$fg[cyan]%}[%{$fg[blue]%}%n%{$fg[magenta]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[cyan]%}]%{$reset_color%}%b~%b "
 
 # History in cache directory:
 HISTSIZE=10000
@@ -54,9 +54,8 @@ _comp_options+=(globdots)		# Include hidden files.
 
 # Load Neofetch
 # neofetch
-
 # load starship prompt
-eval "$(starship init zsh)"
+# eval "$(starship init zsh)"
 
 # Load zsh-syntax-highlighting
 source $HOME/.config/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
