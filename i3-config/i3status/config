@@ -1,52 +1,81 @@
+# i3status configuration file.
+# see "man i3status" for documentation.
+
+# It is important that this file is edited as UTF-8.
+# The following line should contain a sharp s:
+# ß
+# If the above line is not correctly displayed, fix your editor first!
+
 general {
-        output_format = "i3bar"
-        colors = false
-        markup = pango
+        colors = true
         interval = 5
-        color_good = '#4c566a'
-		color_degraded = '#4c566a'
-		color_bad = '#4c566a'
+        color_good = "#81a1c1" # Light green
+        color_degraded = "#fafe7c" # Light yellow
+        color_bad = "#ff7770" # Light red
 }
 
-order += "load"
-order += "cpu_temperature 0"
-order += "disk /"
-order += "wireless wlp2s0"
-order += "battery 1"
+# order += "ipv6"
+order += "volume master"
+order += "wireless _first_"
+# order += "ethernet _first_"
+# order += "battery all"
+order += "battery 0"
+# order += "disk /"
+# order += "load"
+# order += "memory"
 order += "tztime local"
 
-load {
-        format = "<span background='#5e81ac'> %5min Load </span>"
+# wireless _first_ {
+#         format_up = "(%quality at %essid)"
+#         format_down = "down"
+# }
+
+wireless _first_ {
+        format_up = "%essid  "
+        format_down = "Down  "
 }
 
-cpu_temperature 0 {
-        format = "<span background='#81a1c1'> %degrees °C </span>"
-        path = "/sys/class/thermal/thermal_zone0/temp"
+volume master {
+        format = "%volume "
+        format_muted = "%volume  "
+        device = "default"
+        mixer = "Master"
+        mixer_idx = 0
+}
+
+ethernet _first_ {
+        format_up = "E: %ip (%speed)"
+        format_down = "E: down"
+}
+
+# battery all {
+#         format = "%status %percentage"
+# }
+
+battery 0 {
+        format = "%status %percentage"
+        hide_seconds = true
+        integer_battery_capacity = true
+        last_full_capacity = true
+        status_chr = "☢ Cha"
+        status_bat = "☢ Dis"
+        status_full = "Full"
 }
 
 disk "/" {
-        format = "<span background='#88c0d0'> %free Free </span>"
+        format = "%avail"
 }
 
-wireless wlp2s0 {
-        format_up = "<span background='#8fbcbb'> %essid </span>"
-        format_down = "<span background='#b48ead'> Disconnected </span>"
+load {
+        format = "CPU: %1min"
 }
 
-
-battery 1 {
-	last_full_capacity = true
-        format = "<span background='#b48ead'> %status %percentage </span>"
-        format_down = "No Battery"
-        status_chr = "Charging"
-        status_bat = "Battery"
-        status_unk = "Unknown"
-        status_full = "Charged"
-        path = "/sys/class/power_supply/BAT0/uevent"
-        low_threshold = 10
+memory {
+        format = "  Mem %used"
+        threshold_degraded = "1G"
+        format_degraded = "MEMORY < %available"
 }
 
 tztime local {
-		format = "<span background='#d08770'> %time </span>"
-    format = "%d-%m-%Y %H:%M:%S"
+        format = "%a %d-%m-%Y  %H:%M  "
 }

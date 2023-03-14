@@ -68,6 +68,8 @@ tiling_drag modifier titlebar
 bindsym $mod+Return exec alacritty
 bindsym $mod+w exec firefox
 
+exec picom
+
 # kill focused window
 bindsym $mod+c kill
 
@@ -204,5 +206,5 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 bar {
         status_command i3status
-        font pango:DejaVu Sans Mono 12
+        font pango:DejaVu Sans Mono 11
 }
