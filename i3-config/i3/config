@@ -70,7 +70,8 @@ tiling_drag modifier titlebar
 
 # start applications
 bindsym $mod+Return exec alacritty
-bindsym $mod+w exec firefox
+# bindsym $mod+w exec firefox
+bindsym $mod+w exec chromium-browser
 
 exec picom
 
