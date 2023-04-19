@@ -52,10 +52,8 @@ _comp_options+=(globdots)		# Include hidden files.
 [ -f "$HOME/.config/dot-files/zsh-config/aliasrc" ] && source "$HOME/.config/dot-files/zsh-config/aliasrc"
 [ -f "$HOME/.config/dot-files/zsh-config/pathrc" ] && source "$HOME/.config/dot-files/zsh-config/pathrc"
 
-# Load Neofetch
-# neofetch
 # load starship prompt
-# eval "$(starship init zsh)"
+eval "$(starship init zsh)"
 
 # Load zsh-syntax-highlighting
 source $HOME/.config/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
