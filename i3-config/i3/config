@@ -78,6 +78,11 @@ assign [class="firefox"] 2
 bindsym $mod+w exec qutebrowser
 assign [class="qutebrowser"] 3
 
+# Make the currently focused window a scratchpad
+bindsym $mod+Shift+minus move scratchpad
+# Show the first scratchpad window
+bindsym $mod+minus scratchpad show
+
 exec picom
 
 # kill focused window
