@@ -72,7 +72,7 @@ tiling_drag modifier titlebar
 bindsym $mod+Return exec alacritty
 assign [class="alacritty"] 1
 
-bindsym $mod++Shift+Return exec kitty
+bindsym $mod+Shift+Return exec emacsclient -c
 
 bindsym $mod+Shift+w exec firefox
 assign [class="firefox"] 9
