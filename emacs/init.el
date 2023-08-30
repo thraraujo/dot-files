@@ -153,4 +153,18 @@ like \\[yank-pop] does, but in the opposite direction."
 (scroll-bar-mode -1)
 (blink-cursor-mode 0)
 
-(load-theme 'nord)
+(require 'org-bullets)
+(add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
+
+(require 'lsp-mode)
+(add-hook 'latex-mode-hook #'lsp)
+(add-hook 'python-mode-hook #'lsp)
+
+(add-hook 'after-init-hook 'global-company-mode) ; autocompletion
+(setq company-minimum-prefix-length 1
+      company-idle-delay 0.0) ;; default is 0.2
+
+
+(load-theme 'dracula)
+
+
