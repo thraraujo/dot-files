@@ -164,6 +164,14 @@ like \\[yank-pop] does, but in the opposite direction."
 (setq company-minimum-prefix-length 1
       company-idle-delay 0.0) ;; default is 0.2
 
+;; I think that it is the configuration to execute python codes in org-mode
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((python . t)))
+
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((shell . t)))
 
 (load-theme 'dracula)
 
