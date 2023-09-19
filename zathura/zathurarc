@@ -1,0 +1,3 @@
+map p search previous
+map [ navigate previous
+map ] navigate next

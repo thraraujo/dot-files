@@ -1,5 +1,5 @@
 alias ltc="latexmk -pdf"
-alias rena="rename -f 'y/A-Z/a-z/' * && rename -f 'y/_/-/' * && rename -f 'y/ /-/' * && rename -f 'y/,/-/' *"
+alias rena="prename -f 'y/A-Z/a-z/' * && prename -f 'y/_/-/' * && prename -f 'y/ /-/' * && prename -f 'y/,/-/' *"
 
 alias rm='trash'
 alias ..='cd ..'
