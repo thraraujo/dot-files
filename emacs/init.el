@@ -141,7 +141,7 @@ like \\[yank-pop] does, but in the opposite direction."
 (evil-mode 1)
 
 (global-display-line-numbers-mode 1)
-(setq global-display-line-numbers 'relative)
+(setq display-line-numbers-type 'relative)
 
 (setq initial-buffer-choice "~/start.org")
 
