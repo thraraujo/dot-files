@@ -75,9 +75,9 @@ floating_modifier $mod
 tiling_drag modifier titlebar
 
 # start applications
-bindsym $mod+t exec alacritty
+bindsym $mod+Return exec alacritty
 
-bindsym $mod+Return exec emacsclient -c
+# bindsym $mod+Return exec emacsclient -c
 
 bindsym $mod+Shift+w exec firefox
 #assign [class="firefox"] 9
