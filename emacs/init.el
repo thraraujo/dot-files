@@ -35,7 +35,11 @@
 ;; Initial Definitions
 (setq inhibit-startup-message t)                                       ; don't show the splash screen
 (setq visible-bell t)				                       ; flash when the bell rings
-						                       
+
+; For a better scrolling experience
+(require 'smooth-scrolling)
+(smooth-scrolling-mode 1)
+
 ;; Some UI elements				                       
 (tool-bar-mode -1)                                                     ; turn off the toolbar
 (menu-bar-mode -1)                                                     ; turn off the menubar
@@ -100,7 +104,8 @@
 ;; Theme Configuration: Modus Vivendi - before loading theme
 (setq modus-themes-mode-line '(accented borderless))                   ; I didn't like the padded
 (setq modus-themes-region '(bg-only))                                  ; the selected region is purple -- the accented is also cool but does not preserve the code highlights
-(setq modus-themes-completions 'optionated)
+(setq modus-themes-completions '((matches . (extrabold)) (selection . (semibold italic text-also))))
+
 
 (setq modus-themes-bold-constructs t)
 (setq modus-themes-italic-constructs t)
@@ -157,7 +162,8 @@
 (use-package counsel
   :bind (("C-M-j" . 'counsel-switch-buffer)
          :map minibuffer-local-map
-         ("C-r" . 'counsel-minibuffer-history))
+         ;("C-r" . 'counsel-minibuffer-history)
+	 )
   :custom
   (counsel-linux-app-format-function #'counsel-linux-app-format-function-name-only)
   :config
@@ -193,5 +199,49 @@
   (which-key-mode)
   (setq which-key-idle-delay 1))
 
+;; org-mode config
+(defun dw/org-mode-setup ()
+  (org-indent-mode)
+  (variable-pitch-mode 1)
+  (auto-fill-mode 0)
+  (visual-line-mode 1)
+  (setq evil-auto-indent nil))
 
+(use-package org
+  :hook (org-mode . dw/org-mode-setup)
+  :config
+  (setq org-ellipsis " ▾"
+        org-hide-emphasis-markers t))
 
+(use-package org-bullets
+  :after org
+  :hook (org-mode . org-bullets-mode)
+  :custom
+  (org-bullets-bullet-list '("◉" "○" "●" "○" "●" "○" "●")))
+
+;; Replace list hyphen with dot
+(font-lock-add-keywords 'org-mode
+                        '(("^ *\\([-]\\) "
+                          (0 (prog1 () (compose-region (match-beginning 1) (match-end 1) "•"))))))
+
+(dolist (face '((org-level-1 . 1.2)
+                (org-level-2 . 1.1)
+                (org-level-3 . 1.05)
+                (org-level-4 . 1.0)
+                (org-level-5 . 1.1)
+                (org-level-6 . 1.1)
+                (org-level-7 . 1.1)
+                (org-level-8 . 1.1)))
+    (set-face-attribute (car face) nil :font "Fira Code Nerd Font" :weight 'regular :height (cdr face)))
+
+;; Make sure org-indent face is available
+(require 'org-indent)
+
+;; Ensure that anything that should be fixed-pitch in Org files appears that way
+(set-face-attribute 'org-block nil :foreground nil :inherit 'fixed-pitch)
+(set-face-attribute 'org-code nil   :inherit '(shadow fixed-pitch))
+(set-face-attribute 'org-indent nil :inherit '(org-hide fixed-pitch))
+(set-face-attribute 'org-verbatim nil :inherit '(shadow fixed-pitch))
+(set-face-attribute 'org-special-keyword nil :inherit '(font-lock-comment-face fixed-pitch))
+(set-face-attribute 'org-meta-line nil :inherit '(font-lock-comment-face fixed-pitch))
+(set-face-attribute 'org-checkbox nil :inherit 'fixed-pitch)
