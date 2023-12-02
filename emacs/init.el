@@ -15,6 +15,7 @@
 (require 'package)
 
 (setq package-archives '(("melpa" . "https://melpa.org/packages/")
+			("melpa-stable" . "http://stable.melpa.org/packages/") 
                          ("org" . "https://orgmode.org/elpa/")
                          ("elpa" . "https://elpa.gnu.org/packages/")))
 
@@ -22,7 +23,7 @@
 (unless package-archive-contents
   (package-refresh-contents))
 
- ;; Initialize use-package on non-Linux platforms
+;; Initialize use-package on non-Linux platforms
 (unless (package-installed-p 'use-package)
   (package-install 'use-package))
 
@@ -30,6 +31,8 @@
 (setq use-package-always-ensure t)
 
 
+;; Initial buffer
+(setq initial-buffer-choice "~/start.org")
 
 
 ;; Initial Definitions
@@ -54,6 +57,7 @@
 
 ;; Disable line numbers for some modes
 (dolist (mode '(term-mode-hook
+		vterm-mode-hook
                 shell-mode-hook
                 treemacs-mode-hook
                 eshell-mode-hook))
@@ -224,6 +228,10 @@
                         '(("^ *\\([-]\\) "
                           (0 (prog1 () (compose-region (match-beginning 1) (match-end 1) "•"))))))
 
+(with-eval-after-load 'org-faces
+
+;; Increase the size of various headings
+(set-face-attribute 'org-document-title nil :font "Hack Nerd Font" :weight 'bold :height 1.3)
 (dolist (face '((org-level-1 . 1.2)
                 (org-level-2 . 1.1)
                 (org-level-3 . 1.05)
@@ -232,16 +240,32 @@
                 (org-level-6 . 1.1)
                 (org-level-7 . 1.1)
                 (org-level-8 . 1.1)))
-    (set-face-attribute (car face) nil :font "Fira Code Nerd Font" :weight 'regular :height (cdr face)))
-
-;; Make sure org-indent face is available
-(require 'org-indent)
+  (set-face-attribute (car face) nil :font "Hack Nerd Font" :weight 'regular :height (cdr face)))
 
 ;; Ensure that anything that should be fixed-pitch in Org files appears that way
-(set-face-attribute 'org-block nil :foreground nil :inherit 'fixed-pitch)
-(set-face-attribute 'org-code nil   :inherit '(shadow fixed-pitch))
-(set-face-attribute 'org-indent nil :inherit '(org-hide fixed-pitch))
+(set-face-attribute 'org-block nil    :foreground nil :inherit 'fixed-pitch)
+(set-face-attribute 'org-table nil    :inherit 'fixed-pitch)
+(set-face-attribute 'org-formula nil  :inherit 'fixed-pitch)
+(set-face-attribute 'org-code nil     :inherit '(shadow fixed-pitch))
+(set-face-attribute 'org-table nil    :inherit '(shadow fixed-pitch))
 (set-face-attribute 'org-verbatim nil :inherit '(shadow fixed-pitch))
 (set-face-attribute 'org-special-keyword nil :inherit '(font-lock-comment-face fixed-pitch))
 (set-face-attribute 'org-meta-line nil :inherit '(font-lock-comment-face fixed-pitch))
-(set-face-attribute 'org-checkbox nil :inherit 'fixed-pitch)
+(set-face-attribute 'org-checkbox nil  :inherit 'fixed-pitch))
+
+;; projectile
+(use-package projectile
+  :diminish projectile-mode
+  :config (projectile-mode)
+  :bind-keymap
+  ("C-c p" . projectile-command-map)
+  :init
+  (when (file-directory-p "~/Projects/Code")
+    (setq projectile-project-search-path '("~/Documents/projects")))
+  (setq projectile-switch-project-action #'projectile-dired))
+
+
+(use-package counsel-projectile
+ :after projectile
+ :config
+ (counsel-projectile-mode 1))
