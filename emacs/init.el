@@ -74,7 +74,7 @@
 (set-face-attribute 'fixed-pitch nil :font "Fira Code Nerd Font")
 
 ;; Set the variable pitch face
-(set-face-attribute 'variable-pitch nil :font "Cantarell")
+(set-face-attribute 'variable-pitch nil :font "Fira Code Nerd Font")
 
 ;; Set frame transparency
 ;(set-frame-parameter (selected-frame) 'alpha efs/frame-transparency)
@@ -231,7 +231,7 @@
 (with-eval-after-load 'org-faces
 
 ;; Increase the size of various headings
-(set-face-attribute 'org-document-title nil :font "Hack Nerd Font" :weight 'bold :height 1.3)
+(set-face-attribute 'org-document-title nil :font "Fira Code Nerd Font" :weight 'bold :height 1.3)
 (dolist (face '((org-level-1 . 1.2)
                 (org-level-2 . 1.1)
                 (org-level-3 . 1.05)
@@ -240,7 +240,7 @@
                 (org-level-6 . 1.1)
                 (org-level-7 . 1.1)
                 (org-level-8 . 1.1)))
-  (set-face-attribute (car face) nil :font "Hack Nerd Font" :weight 'regular :height (cdr face)))
+  (set-face-attribute (car face) nil :font "Fira Code Nerd Font" :weight 'regular :height (cdr face)))
 
 ;; Ensure that anything that should be fixed-pitch in Org files appears that way
 (set-face-attribute 'org-block nil    :foreground nil :inherit 'fixed-pitch)
@@ -269,3 +269,37 @@
  :after projectile
  :config
  (counsel-projectile-mode 1))
+
+;; magit
+(use-package magit
+  :commands (magit-status magit-get-current-branch)
+  :custom
+  (magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1))
+
+(use-package pdf-tools
+   :defer t
+   :config
+       (pdf-tools-install)
+       (setq-default pdf-view-display-size 'fit-page)
+   :bind (:map pdf-view-mode-map
+         ("\\" . hydra-pdftools/body)
+         ("<s-spc>" .  pdf-view-scroll-down-or-next-page)
+         ("g"  . pdf-view-first-page)
+         ("G"  . pdf-view-last-page)
+         ("l"  . image-forward-hscroll)
+         ("h"  . image-backward-hscroll)
+         ("j"  . pdf-view-next-page)
+         ("k"  . pdf-view-previous-page)
+         ("e"  . pdf-view-goto-page)
+         ("u"  . pdf-view-revert-buffer)
+         ("al" . pdf-annot-list-annotations)
+         ("ad" . pdf-annot-delete)
+         ("aa" . pdf-annot-attachment-dired)
+         ("am" . pdf-annot-add-markup-annotation)
+         ("at" . pdf-annot-add-text-annotation)
+         ("y"  . pdf-view-kill-ring-save)
+         ("i"  . pdf-misc-display-metadata)
+         ("s"  . pdf-occur)
+         ("b"  . pdf-view-set-slice-from-bounding-box)
+         ("r"  . pdf-view-reset-slice)))
+
