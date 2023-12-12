@@ -49,17 +49,19 @@
 (scroll-bar-mode -1)                                                   ; turn off scrollbar
 (blink-cursor-mode -1)                                                 ; turn off blink cursor
 (hl-line-mode 1)                                                       ; highlight line
-(setq fringe-mode 10)
+(setq fringe-mode 20)
 
 (column-number-mode)
 (global-display-line-numbers-mode t)                                   ; line numberting
-;(setq display-line-numbers 'relative)                                 ; relative numbers
+(setq display-line-numbers-type 'relative)                             ; relative numbers
 
 ;; Disable line numbers for some modes
 (dolist (mode '(term-mode-hook
 		vterm-mode-hook
                 shell-mode-hook
                 treemacs-mode-hook
+		dired-mode-hook
+		ibuffer-mode-hook
                 eshell-mode-hook))
   (add-hook mode (lambda () (display-line-numbers-mode 0))))
 						                       
