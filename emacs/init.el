@@ -303,7 +303,7 @@
 
 
 ;; Initial buffer
-(setq initial-buffer-choice "~/start.org")
+(setq initial-buffer-choice "~/Documents/projects/wiki/README.org")
 
 ;; LSP
 (use-package lsp-mode)
