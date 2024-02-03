@@ -1,0 +1,92 @@
+
+% DEFINITIONS
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+% ADDITIONAL PACKAGES
+%%%%%%%%%%%%%%%%%%%%%%%% 
+\usepackage{parskip}
+\usepackage{tikz} % Drawing package
+\usepackage[natbib=true, style=nature]{biblatex}
+\usepackage{listings}
+\usepackage{framed} 
+\usepackage{ytableau}
+\usepackage{fontawesome5}
+
+\usetikzlibrary{intersections,decorations.text} % this is to make the cover
+\usetikzlibrary{matrix, arrows.meta} % this is to improve diagrams
+
+\setlength\parindent{0pt}
+% \setdefaultlanguage[variant=brazilian]{portuguese}
+\setdefaultlanguage{english}
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+% METADATA
+%%%%%%%%%%%%%%%%%%%%%%%% 
+\hypersetup{ % Official manual defines the options
+	pdftitle={integrable systems, programming and so on},
+	pdfsubject={High Energy Physics and so on}, 
+	pdfauthor={author},
+	pdfkeywords={gauge; susy; strings; fields; cft; python},
+	colorlinks=true, % false: color frames ; true: color links
+  linkcolor=myBlue, % Color of internal links (sections, pages and so on)
+  citecolor=myPurple, % color for bibliographical citations
+  urlcolor=myBlue, % color for linked URL
+  linktocpage=true % link page to table of contents
+  }
+
+% Options for listings package I saw the sniipet below here: 
+% https://stackoverflow.com/questions/3175105/inserting-code-in-this-latex-document-with-indentation
+\lstset{frame=tb,
+  language=Python,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{myPurple},
+  keywordstyle=\color{myRed},
+  commentstyle=\color{myBlue},
+  stringstyle=\color{myPurple!80},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%% 
+% COLORS
+%%%%%%%%%%%%%%%%%%%%%%%% 
+% see palette here: https://github.com/enkia/tokyo-night-vscode-theme
+\definecolor{myPurple}{RGB}{90, 74, 120}
+\definecolor{myBlue}{RGB}{15, 75, 110}
+\definecolor{myRed}{RGB}{191,97,106}
+\definecolor{myDarkGray}{RGB}{216, 222, 233}
+\definecolor{myLightGray}{RGB}{236, 239, 244}
+
+\definecolor{c1}{RGB}{129, 162, 193}%  {15, 75, 110} % myBlue
+\definecolor{c2}{RGB}{216, 222, 233} % myDarkGray
+\definecolor{c3}{RGB}{236, 239, 244} % myLightGray
+\definecolor{c4}{RGB}{59, 66, 82}
+\definecolor{c5}{RGB}{76, 86, 106}
+
+% This color is a framed requirement
+\definecolor{shadecolor}{RGB}{236, 239, 244}
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+% THEOREM
+%%%%%%%%%%%%%%%%%%%%%%%% 
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}{Corollary}
+\newtheorem{proposition}{Proposition}
+\newtheorem{conjecture}{Conjecture}
+\newtheorem{lemma}{Lemma}
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+% MACROS
+%%%%%%%%%%%%%%%%%%%%%%%% 
+
+\DeclarePairedDelimiter{\bra}{\langle}{\rvert}
+\DeclarePairedDelimiter{\ket}{\lvert}{\rangle}
+\DeclarePairedDelimiterX{\bracket}[2]{\langle}{\rangle}{#1\vert#2}
+\DeclarePairedDelimiterX{\bbracket}[2]{\langle\!\langle}{\rangle\!\rangle}{#1\vert#2}

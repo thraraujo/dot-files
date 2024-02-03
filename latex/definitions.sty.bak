@@ -1,0 +1,109 @@
+% ============================================
+% These are global definitions for our papers.
+\NeedsTeXFormat{LaTeX2e}[1999/12/01]
+\ProvidesPackage{definitions}
+
+% ===============
+% Global packages
+
+\RequirePackage{fullpage} % This package sets all 4 margins to be either 1 inch or 1.5 cm, and specifies the page style.
+\RequirePackage{hyperref} % Hyperlinks
+\RequirePackage{graphicx}% Graphics, ex. \includegraphics
+\RequirePackage{xcolor}% Obviously for colors, This package is better than the similar package colors
+\RequirePackage{fancybox} % Several different styles of boxes
+\RequirePackage{tikz} % Drawing package
+\RequirePackage[tikz]{mdframed} % For drawing frames
+\RequirePackage{framed} % Shaded box is defined in this package. I am not sure if I can remove this package because mdframed seems to be better. Leave it here for a while.
+\RequirePackage{caption,subcaption} % Well... it is obvious
+\RequirePackage{marginnote} %  used instead of \marginpar where \marginpar cannot be used
+\RequirePackage{todonotes} %  used instead of \marginpar where \marginpar cannot be used
+\RequirePackage{microtype} % Makes the typing neater
+\RequirePackage{cite,mcite} % the package cite improves citations, for example, [5,6,7,8] becomes [5-8].
+\RequirePackage{manfnt} % \dbend and other symbols
+\RequirePackage{stmaryrd} % this package defines the double struck brackets \llbracket and \rrbracket
+\RequirePackage{xfrac}%it defines the nice \sfrac{}{}
+\RequirePackage{amsthm,mathtools,amssymb,amsmath} % AMS math typesetting packages. The package mathtools is better than amsmath.
+\RequirePackage{bbold} % bbold math family, ex. \mathbb{1}
+\RequirePackage{tikz-cd} % tckz for commutative diagrams
+\RequirePackage{ytableau} % Young diagrams
+\RequirePackage{bm} % Bold fonts. I can use with greek letters and it is better for mathmode.
+\RequirePackage{mathrsfs} % Math script, mathscr, that does not overwrite \mathcal
+\RequirePackage{moreverb} % This package improves the verbatim.
+
+
+% ============
+% Framed Boxes
+
+	% Type 1: Round squares with title in the top
+
+\newenvironment{itembox}[1]{\begin{mdframed}[
+		roundcorner=10pt,
+		frametitlefont=\normalfont,
+		frametitleaboveskip=\dimexpr-0.7\baselineskip,skipabove=\topskip,
+		innertopmargin=\dimexpr-0.65\baselineskip,
+		innerbottommargin=\dimexpr0.65\baselineskip,
+		frametitle={\tikz{\node[anchor=base,rectangle,fill=white] {\strut #1};}}]}
+	{\end{mdframed}}
+
+	% Type 2: Round squares with yellow background in the top
+
+\newenvironment{roundbox}[1]{\begin{mdframed}[
+		outerlinewidth=1,
+		roundcorner = 10pt,
+		userdefinedwidth=2.3cm,
+		align=center,
+		backgroundcolor = light-yellow,
+		outerlinecolor = MyDarkBlue,
+		innertopmargin = \topskip,
+		splittopskip = \topskip]}
+	{\end{mdframed}}
+
+	% Type 3: Round squares with yellow background in the top
+
+\newenvironment{resultbox}[1]{\begin{mdframed}[
+		outerlinewidth=1,
+		roundcorner = 10pt,
+		align=center,
+		backgroundcolor = shadecolor,
+		outerlinecolor = MyDarkBlue,
+		innertopmargin=\dimexpr-0.65\baselineskip,
+		innertopmargin = \topskip,
+		splittopskip = \topskip]}
+	{\end{mdframed}}
+
+
+% ======
+% Colors
+% It accepts integer values in the interval [0,255] == divide the value by 255 to get in the interval [0,1]
+
+\definecolor{MyDarkBlue}{rgb}{0.15,0.15,0.45}
+\definecolor{shadecolor}{rgb}{0.85,0.85,0.85}
+\definecolor{light-blue}{rgb}{0.15,0.15,0.65}
+\definecolor{light-yellow}{rgb}{1,0.98,0.73}
+\definecolor{link-blue}{rgb}{0.15,0.15,0.65}
+\definecolor{link-red}{rgb}{0.8,0.15,0.1}
+\definecolor{link-green}{rgb}{0.15,0.50,0.15}
+\definecolor{link}{rgb}{0.30,0,0.47} % Purple
+%\definecolor{link}{rgb}{0.45,0.18,0.22} % Red
+
+% ======
+% Macros
+% This final section is all about macros. I should replace all the macros below by vim snippets and avoid these macros.
+% Unfortunately, I still have some documents that use the macros below, so I leave them here for now.
+
+\newcommand{\Comment}[1]{{}}
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\bse}{\begin{subequations}}
+\newcommand{\ese}{\end{subequations}}
+\newcommand{\dd}{\mathrm{d}}
+\newcommand{\nn}{\nonumber}
+\newcommand{\Tr}{\textrm{Tr}}
+\newcommand{\sign}{\operatorname{sign}}
+\newcommand{\diag}{\operatorname{diag}}
+\newcommand{\card}{\operatorname{Card.}}
+
+\DeclarePairedDelimiter{\bra}{\langle}{\rvert}
+\DeclarePairedDelimiter{\ket}{\lvert}{\rangle}
+\DeclarePairedDelimiterX{\bracket}[2]{\langle}{\rangle}{#1\vert#2}
+\DeclarePairedDelimiterX{\bbracket}[2]{\langle\!\langle}{\rangle\!\rangle}{#1\vert#2}
