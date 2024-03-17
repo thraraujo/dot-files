@@ -345,3 +345,9 @@
 
 ;; This code should initiate evil mode in ibuffer 
 (setq evil-emacs-state-modes (delq 'ibuffer-mode evil-emacs-state-modes))
+
+;;
+(require 'openwith)
+(openwith-mode t)
+(setq openwith-associations '(("\\.pdf\\'" "zathura" (file))))
+(setq openwith-associations '(("\\.djvu\\'" "zathura" (file))))
