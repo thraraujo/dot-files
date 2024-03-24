@@ -103,36 +103,66 @@
 (setq global-auto-revert-non-file-buffers t)                           ; the dired is updated as well
 
 
-;; Theme Configuration: Modus Vivendi - before loading theme
-(setq modus-themes-mode-line '(accented borderless))                   ; I didn't like the padded
-(setq modus-themes-region '(bg-only))                                  ; the selected region is purple -- the accented is also cool but does not preserve the code highlights
-(setq modus-themes-completions '((matches . (extrabold)) (selection . (semibold italic text-also))))
+
+; ;; Theme Configuration: Modus Vivendi - before loading theme
+; (setq modus-themes-mode-line '(accented borderless))                   ; I didn't like the padded
+; (setq modus-themes-region '(bg-only))                                  ; the selected region is purple -- the accented is also cool but does not preserve the code highlights
+; (setq modus-themes-completions '((matches . (extrabold)) (selection . (semibold italic text-also))))
 
 
-(setq modus-themes-bold-constructs t)
-(setq modus-themes-italic-constructs t)
-(setq modus-themes-paren-match '(bold intense))
-(setq modus-themes-syntax '(faint))
-(setq modus-themes-syntax '(alt-syntax faint))
-(setq modus-themes-syntax '(yellow-comments))                          ; might try green-strings, but the blue strings look better
+;; Modus Vivendi Theme
+; (setq modus-themes-bold-constructs t)
+; (setq modus-themes-italic-constructs t)
+; (setq modus-themes-paren-match '(bold intense))
+; (setq modus-themes-syntax '(faint))
+; (setq modus-themes-syntax '(alt-syntax faint))
+; (setq modus-themes-syntax '(yellow-comments))                          ; might try green-strings, but the blue strings look better
 
-(setq modus-themes-headings
-      '((1. (rainbow overline background 1.4))
-	(2. (rainbow background 1.3))
-	(3. (rainbow bold 1.2))
-	(t. (semilight 1.1))))
-(setq modus-themes-scale-headings t)
+; (setq modus-themes-headings
+    ; '((1. (rainbow overline background 1.4))
+    ; (2. (rainbow background 1.3))
+    ; (3. (rainbow bold 1.2))
+    ; (t. (semilight 1.1))))
+; (setq modus-themes-scale-headings t)
 
-;(setq modus-themes-org-blocks 'gray-background)
-(setq modus-themes-org-blocks 'tinted-background)
+; ;(setq modus-themes-org-blocks 'gray-background)
+; (setq modus-themes-org-blocks 'tinted-background)
 
 ;; Load theme
-(load-theme 'modus-vivendi t)                                          ; I can toggle between the light and dark version with M-x modus-theme-toggle
+;(load-theme 'modus-vivendi t)                                          ; I can toggle between the light and dark version with M-x modus-theme-toggle
+
+
+;; doom-themes repo: https://github.com/doomemacs/themes?tab=readme-ov-file#install
+(use-package doom-themes
+  :ensure t
+  :config
+  ;; Global settings (defaults)
+  (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
+        doom-themes-enable-italic t) ; if nil, italics is universally disabled
+  (load-theme 'doom-one t)
+
+  ;; Enable flashing mode-line on errors
+  (doom-themes-visual-bell-config)
+  ;; Enable custom neotree theme (all-the-icons must be installed!)
+  (doom-themes-neotree-config)
+  ;; or for treemacs users
+  (setq doom-themes-treemacs-theme "doom-atom") ; use "doom-colors" for less minimal icon theme
+  (doom-themes-treemacs-config)
+  ;; Corrects (and improves) org-mode's native fontification.
+  (doom-themes-org-config))
+
+;(setq doom-theme 'doom-city-lights)
+
+; dirvish
+(dirvish-override-dired-mode)
 
 ;; Doom Modeline - just to make the modeline prettier
 (use-package doom-modeline
+  :ensure t
   :init (doom-modeline-mode 1)
   :custom ((doom-modeline-height 15)))
+
+(setq doom-modeline-project-detection 'auto)
 
 ;; Make ESC quit prompts
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
