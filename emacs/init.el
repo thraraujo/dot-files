@@ -154,7 +154,7 @@
 ;(setq doom-theme 'doom-city-lights)
 
 ; dirvish
-(dirvish-override-dired-mode)
+;(dirvish-override-dired-mode)
 
 ;; Doom Modeline - just to make the modeline prettier
 (use-package doom-modeline
