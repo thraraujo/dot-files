@@ -15,9 +15,9 @@
 (require 'package)
 
 (setq package-archives '(("melpa" . "https://melpa.org/packages/")
-			("melpa-stable" . "http://stable.melpa.org/packages/") 
-                         ("org" . "https://orgmode.org/elpa/")
-                         ("elpa" . "https://elpa.gnu.org/packages/")))
+			            ("melpa-stable" . "http://stable.melpa.org/packages/") 
+                        ("org" . "https://orgmode.org/elpa/")
+                        ("elpa" . "https://elpa.gnu.org/packages/")))
 
 (package-initialize)
 (unless package-archive-contents
@@ -336,7 +336,7 @@
 (setq bookmark-default-file "~/.emacs.d/bookmarks")
 
 ;; Initial buffer
-(setq initial-buffer-choice "~/Sync/wiki/README.org")
+(setq initial-buffer-choice "~/Sync/projects/wiki/README.org")
 
 ;; LSP
 (use-package lsp-mode)
