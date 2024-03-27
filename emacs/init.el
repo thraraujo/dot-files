@@ -304,6 +304,7 @@
   :custom
   (magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1))
 
+;; pdf-tools
 (use-package pdf-tools
    :defer t
    :config
@@ -331,9 +332,11 @@
          ("b"  . pdf-view-set-slice-from-bounding-box)
          ("r"  . pdf-view-reset-slice)))
 
+;;bookmark
+(setq bookmark-default-file "~/.emacs.d/bookmarks")
 
 ;; Initial buffer
-(setq initial-buffer-choice "~/Documents/projects/wiki/README.org")
+(setq initial-buffer-choice "~/Sync/wiki/README.org")
 
 ;; LSP
 (use-package lsp-mode)
@@ -379,5 +382,10 @@
 ;;
 (require 'openwith)
 (openwith-mode t)
-(setq openwith-associations '(("\\.pdf\\'" "zathura" (file))))
 (setq openwith-associations '(("\\.djvu\\'" "zathura" (file))))
+(setq openwith-associations '(("\\.pdf\\'" "zathura" (file))))
+
+
+;; Helm-bibtex
+(setq bibtex-completion-bibliography
+      '("~/.config/dot-files/latex/bib-database.bib"))
