@@ -332,6 +332,9 @@
          ("b"  . pdf-view-set-slice-from-bounding-box)
          ("r"  . pdf-view-reset-slice)))
 
+; copy paste more efficiently
+(setq dired-dwim-target t)
+
 ;;bookmark
 (setq bookmark-default-file "~/.emacs.d/bookmarks")
 
