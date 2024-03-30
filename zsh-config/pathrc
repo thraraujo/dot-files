@@ -6,3 +6,6 @@ export PATH="/usr/local/texlive/2022/bin/x86_64-linux:$PATH"
 
 # Path Doom Emacs
 export PATH="$HOME/.config/emacs/bin:$PATH"
+
+# Path Cargo
+export PATH="$HOME/.cargo/bin:$PATH"

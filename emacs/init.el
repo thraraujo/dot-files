@@ -8,9 +8,6 @@
    ;; C-h f -- funtions
    ;; C-h o -- describe symbols
 
-
-
-
 ;; Initialize package sources
 (require 'package)
 
@@ -29,7 +26,6 @@
 
 (require 'use-package)
 (setq use-package-always-ensure t)
-
 
 ;; Initial Definitions
 (setq inhibit-startup-message t)                                       ; don't show the splash screen
@@ -338,11 +334,31 @@
 ;;bookmark
 (setq bookmark-default-file "~/.emacs.d/bookmarks")
 
-;; Initial buffer
-(setq initial-buffer-choice "~/Sync/projects/wiki/README.org")
+;; Treesitter
+(setq treesit-language-source-alist
+   '((bash "https://github.com/tree-sitter/tree-sitter-bash")
+     (c "https://github.com/tree-sitter/tree-sitter-c.git")
+     (python "https://github.com/tree-sitter/tree-sitter-python")
+     (elisp "https://github.com/Wilfred/tree-sitter-elisp")
+     (latex "https://github.com/latex-lsp/tree-sitter-latex")
+     (tex "https://github.com/latex-lsp/tree-sitter-latex")
+    ))
+
+(setq major-mode-remap-alist
+ '((python-mode . python-ts-mode)
+   (sh-mode . bash-ts-mode)
+   (c-mode . c-ts-mode)
+   ;;(latex-mode . latex-ts-mode) ; This does not work 
+   ;;(elisp-mode . elisp-ts-mode)
+    ))
+
 
 ;; LSP
 (use-package lsp-mode)
+
+(add-hook 'latex-mode-hook #'lsp)
+(add-hook 'python-mode-hook #'lsp)
+(add-hook 'markdown-mode-hook #'lsp)
 
 (use-package lsp-ivy)
 
@@ -365,7 +381,6 @@
 
 ;; Languages
 (setq lsp-tex-server 'digestif)
-
 
 ;; snippets
 (add-to-list 'load-path
@@ -392,3 +407,6 @@
 ;; Helm-bibtex
 (setq bibtex-completion-bibliography
       '("~/.config/dot-files/latex/bib-database.bib"))
+
+;; Initial buffer
+(setq initial-buffer-choice "~/Sync/projects/wiki/README.org")
