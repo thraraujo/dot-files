@@ -1,3 +1,2 @@
-# setxkbmap -option caps:swapescape # This swaps escape and capslick. Very incovencient. 
-setxkbmap -option caps:escape
+setxkbmap -option caps:nocaps
 xset r rate 250 30
