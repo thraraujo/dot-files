@@ -1,8 +1,10 @@
-alias ltc="latexmk -pdf"
 alias rena="prename -f 'y/A-Z/a-z/' * && prename -f 'y/_/-/' * && prename -f 'y/ /-/' * && prename -f 'y/,/-/' *"
 
 alias rm='trash'
 alias ..='cd ..'
+alias ll='ls -la'
+alias vim='vi'
+alias nvim='echo "vim..."'
 
 alias pbcopy='xclip -selection clipboard'
 alias pbpaste='xclip -selection clipboard -o'
