@@ -1,0 +1,8 @@
+
+set backspace=2         
+set syntax=on               
+filetype indent on      
+set autoindent          
+set number              
+set relativenumber
+set nobackup            

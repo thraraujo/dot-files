@@ -1,12 +1,12 @@
-   ;; Some Useful keybindings
-   ;; C-x C-f - find file
-   ;; C-x C-s - save file
-   ;; C-M-x - load expression 
+;; Some Useful keybindings
+;; C-x C-f - find file
+;; C-x C-s - save file
+;; C-M-x - load expression 
 
-   ;; I can find information about the variables, functions using
-   ;; C-h v -- variables
-   ;; C-h f -- funtions
-   ;; C-h o -- describe symbols
+;; I can find information about the variables, functions using
+;; C-h v -- variables
+;; C-h f -- funtions
+;; C-h o -- describe symbols
 
 ;; Initialize package sources
 (require 'package)
@@ -98,8 +98,6 @@
 (global-auto-revert-mode 1)                                            ; now emacs watches what happens to the files so that they are updated when changed outside emacs
 (setq global-auto-revert-non-file-buffers t)                           ; the dired is updated as well
 
-
-
 ; ;; Theme Configuration: Modus Vivendi - before loading theme
 ; (setq modus-themes-mode-line '(accented borderless))                   ; I didn't like the padded
 ; (setq modus-themes-region '(bg-only))                                  ; the selected region is purple -- the accented is also cool but does not preserve the code highlights
@@ -127,7 +125,6 @@
 ;; Load theme
 ;(load-theme 'modus-vivendi t)                                          ; I can toggle between the light and dark version with M-x modus-theme-toggle
 
-
 ;; doom-themes repo: https://github.com/doomemacs/themes?tab=readme-ov-file#install
 (use-package doom-themes
   :ensure t
@@ -148,9 +145,6 @@
   (doom-themes-org-config))
 
 ;(setq doom-theme 'doom-city-lights)
-
-; dirvish
-;(dirvish-override-dired-mode)
 
 ;; Doom Modeline - just to make the modeline prettier
 (use-package doom-modeline
@@ -388,7 +382,6 @@
 (require 'yasnippet)
 (yas-global-mode 1)
 
-
 ;; The following code changes a tab to 4 spaces
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 4)
@@ -402,7 +395,6 @@
 (openwith-mode t)
 (setq openwith-associations '(("\\.djvu\\'" "zathura" (file))))
 (setq openwith-associations '(("\\.pdf\\'" "zathura" (file))))
-
 
 ;; Helm-bibtex
 (setq bibtex-completion-bibliography
