@@ -1,0 +1,459 @@
+#+TITLE: GNU Emacs Config
+#+AUTHOR: Thiago Araujo
+#+DESCRIPTION: Personal Emacs config.
+#+STARTUP: showeverything
+#+OPTIONS: toc:2
+
+* TABLE OF CONTENTS :toc:
+- [[#important-programs-to-load-first][IMPORTANT PROGRAMS TO LOAD FIRST]]
+  - [[#melpa-package-manager][Melpa Package Manager]]
+  - [[#load-evil-mode][Load Evil Mode]]
+  - Useful configurations
+- [[#fonts][FONTS]]
+- [[#graphical-user-interface-tweaks][GRAPHICAL USER INTERFACE TWEAKS]]
+  - [[#disable-menubar-toolbars-and-scrollbars][Disable Menubar, Toolbars and Scrollbars]]
+  - [[#display-line-numbers-and-truncated-lines][Display Line Numbers and Truncated Lines]]
+- [[#org-mode][ORG MODE]]
+  - [[#enabling-table-of-contents][Enabling Table of Contents]]
+  - [[#enabling-org-bullets][Enabling Org Bullets]]
+- [[#which-key][WHICH-KEY]]
+
+* IMPORTANT PROGRAMS TO LOAD FIRST
+
+** Package Manager
+
+First, we initialize the Melpa package manager. 
+
+#+begin_src emacs-lisp
+(require 'package)
+
+(setq package-archives '(("melpa" . "https://melpa.org/packages/")
+			            ("melpa-stable" . "http://stable.melpa.org/packages/") 
+                        ("org" . "https://orgmode.org/elpa/")
+                        ("elpa" . "https://elpa.gnu.org/packages/")))
+
+(package-initialize)
+(unless package-archive-contents
+  (package-refresh-contents))
+
+;; Initialize use-package on non-Linux platforms
+(unless (package-installed-p 'use-package)
+  (package-install 'use-package))
+
+(require 'use-package)
+(setq use-package-always-ensure t)
+#+end_src
+
+** Evil Mode
+
+Activate evil mode. The second line activates evil mode in Ibuffer.
+
+#+begin_src emacs-lisp
+;; Download Evil
+(unless (package-installed-p 'evil)
+  (package-install 'evil))
+
+;; Enable Evil
+(require 'evil)
+(evil-mode 1)
+(setq evil-emacs-state-modes (delq 'ibuffer-mode evil-emacs-state-modes))
+#+end_src
+
+** Useful configurations
+
+#+begin_src emacs-lisp
+(recentf-mode 1) ; recent files
+(save-place-mode 1); remember and restore the last cursor location of open files
+(icomplete-mode 1) ; completion in the minibuffers
+
+(savehist-mode 1) ; remembering what I type in minibuffers
+(setq history-length 25) ; set this history to 25
+
+;; we want to avoid emacs messing with init file
+(setq custom-file (locate-user-emacs-file "custom-vars.el")) ; emacs save modification elsewhere
+(load custom-file 'noerror 'nomessage) ; it loads the custom file and does't mess with me
+
+; avoid dialog boxes: they are annoying
+(setq use-dialog-box nil) 
+
+; save backup files in ~/.emacs.d/emacs-backup/
+(setq backup-directory-alist '(("." . "~/.emacs.d/emacs-backup"))) 
+
+;; automatically revert buffers for changed files                      
+(global-auto-revert-mode 1) ; emacs watches files so that these are updated when changed outside emacs
+(setq global-auto-revert-non-file-buffers t) ; the dired is updated as well
+
+;; make esc quit prompts
+(global-set-key (kbd "<escape>") 'keyboard-escape-quit)
+
+; copy paste more efficiently
+(setq dired-dwim-target t)
+
+;; The following code changes a tab to 4 spaces
+(setq-default indent-tabs-mode nil)
+(setq-default tab-width 4)
+(setq indent-line-function 'insert-tab)
+#+end_src
+
+* AUTOCOMPLETION AND FONTS
+
+** Ivy and Counsel
+
+#+begin_src emacs-lisp
+;; Ivy and Counsel - This is for autocompletion in the minibuffer
+(use-package ivy
+  :diminish
+  :bind (("C-s" . swiper)
+         :map ivy-minibuffer-map
+         ("TAB" . ivy-alt-done)
+         ("C-l" . ivy-alt-done)
+         ("C-j" . ivy-next-line)
+         ("C-k" . ivy-previous-line)
+         :map ivy-switch-buffer-map
+         ("C-k" . ivy-previous-line)
+         ("C-l" . ivy-done)
+         ("C-d" . ivy-switch-buffer-kill)
+         :map ivy-reverse-i-search-map
+         ("C-k" . ivy-previous-line)
+         ("C-d" . ivy-reverse-i-search-kill))
+  :config
+  (ivy-mode 1))
+
+(use-package ivy-rich
+  :after ivy
+  :init
+  (ivy-rich-mode 1))
+
+(use-package counsel
+  :bind (("C-M-j" . 'counsel-switch-buffer)
+         :map minibuffer-local-map
+         ;("C-r" . 'counsel-minibuffer-history)
+	 )
+  :custom
+  (counsel-linux-app-format-function #'counsel-linux-app-format-function-name-only)
+  :config
+  (counsel-mode 1))
+
+(use-package ivy-prescient
+  :after counsel
+  :custom
+  (ivy-prescient-enable-filtering nil)
+  :config
+  ;; Uncomment the following line to have sorting remembered across sessions!
+  ;(prescient-persist-mode 1)
+  (ivy-prescient-mode 1))
+
+;; Which-key package is helpful for suggestions
+(use-package which-key
+  :defer 0
+  :diminish which-key-mode
+  :config
+  (which-key-mode)
+  (setq which-key-idle-delay 1))
+#+end_src
+
+** Fonts
+
+#+begin_src emacs-lisp
+;; Fonts
+(set-face-attribute 'default nil :font "Fira Code Nerd Font")
+;; Set the fixed pitch face
+(set-face-attribute 'fixed-pitch nil :font "Fira Code Nerd Font")
+;; Set the variable pitch face
+(set-face-attribute 'variable-pitch nil :font "Fira Code Nerd Font")
+#+end_src
+
+* UI ELEMENTS
+
+** Icons
+
+#+begin_src emacs-lisp
+;; We need to need to install the icons
+(use-package all-the-icons
+:ensure t
+:if (display-graphic-p))
+
+(use-package all-the-icons-ivy-rich
+:ensure t
+:init (all-the-icons-ivy-rich-mode 1))
+
+(use-package all-the-icons-ivy)
+(use-package all-the-icons-nerd-fonts)
+(use-package all-the-icons-completion)
+(use-package all-the-icons-ibuffer)
+
+(use-package all-the-icons-dired
+:hook (dired-mode . (lambda () (all-the-icons-dired-mode t))))
+
+; remove all-the-icons
+(use-package nerd-icons-dired)
+(use-package nerd-icons-ibuffer)
+(use-package nerd-icons-ivy-rich)
+(use-package nerd-icons-completion)
+#+end_src
+
+** Theme and modeline
+
+#+begin_src emacs-lisp
+(use-package doom-themes
+  :ensure t
+  :config
+  ;; Global settings (defaults)
+  (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
+        doom-themes-enable-italic t) ; if nil, italics is universally disabled
+  (load-theme 'doom-one t)
+
+  ;; Enable flashing mode-line on errors
+  (doom-themes-visual-bell-config)
+  ;; Enable custom neotree theme (all-the-icons must be installed!)
+  (doom-themes-neotree-config)
+  ;; or for treemacs users
+  (setq doom-themes-treemacs-theme "doom-atom") ; use "doom-colors" for less minimal icon theme
+  (doom-themes-treemacs-config)
+  ;; Corrects (and improves) org-mode's native fontification.
+  (doom-themes-org-config))
+
+(use-package doom-modeline
+:ensure t
+:init (doom-modeline-mode 1)
+:custom ((doom-modeline-height 15)))
+(setq doom-modeline-project-detection 'auto)
+#+end_src
+
+** Other properties
+
+#+begin_src emacs-lisp
+(setq inhibit-startup-message t)                   ; don't show the splash screen
+(setq visible-bell t)		                   ; flash when the bell rings
+
+(use-package smooth-scrolling)                     ; For a better scrolling experience
+(smooth-scrolling-mode 1)
+
+(tool-bar-mode -1)                                 ; turn off the toolbar
+(menu-bar-mode -1)                                 ; turn off the menubar
+(scroll-bar-mode -1)                               ; turn off scrollbar
+(blink-cursor-mode -1)                             ; turn off blink cursor
+(hl-line-mode 1)                                   ; highlight line
+(setq fringe-mode 20)
+
+(column-number-mode)
+(global-display-line-numbers-mode t)               ; line numberting
+(setq display-line-numbers-type 'relative)         ; relative numbers
+
+(use-package rainbow-delimiters                    ; make delimiters colorful
+    :hook (prog-mode . rainbow-delimiters-mode))
+
+(dolist (mode '(term-mode-hook                     ; disable line numbers for some modes
+		vterm-mode-hook
+		shell-mode-hook
+		treemacs-mode-hook
+		dired-mode-hook
+		ibuffer-mode-hook
+		eshell-mode-hook))
+(add-hook mode (lambda () (display-line-numbers-mode 0))))
+#+end_src
+
+
+* ORG MODE
+
+
+#+begin_src emacs-lisp
+
+;; org-mode config
+(defun dw/org-mode-setup ()
+  (org-indent-mode)
+  (variable-pitch-mode 1)
+  (auto-fill-mode 0)
+  (visual-line-mode 1)
+  (setq evil-auto-indent nil))
+
+(use-package org
+  :hook (org-mode . dw/org-mode-setup)
+  :config
+  (setq org-ellipsis " ▾"
+        org-hide-emphasis-markers t))
+
+(use-package org-bullets
+  :after org
+  :hook (org-mode . org-bullets-mode)
+  :custom
+  (org-bullets-bullet-list '("◉" "○" "●" "○" "●" "○" "●")))
+
+;; Replace list hyphen with dot
+(font-lock-add-keywords 'org-mode
+                        '(("^ *\\([-]\\) "
+                          (0 (prog1 () (compose-region (match-beginning 1) (match-end 1) "•"))))))
+
+(with-eval-after-load 'org-faces
+
+;; Increase the size of various headings
+(set-face-attribute 'org-document-title nil :font "Fira Code Nerd Font" :weight 'bold :height 1.3)
+(dolist (face '((org-level-1 . 1.2)
+                (org-level-2 . 1.1)
+                (org-level-3 . 1.05)
+                (org-level-4 . 1.0)
+                (org-level-5 . 1.1)
+                (org-level-6 . 1.1)
+                (org-level-7 . 1.1)
+                (org-level-8 . 1.1)))
+  (set-face-attribute (car face) nil :font "Fira Code Nerd Font" :weight 'regular :height (cdr face)))
+
+;; Ensure that anything that should be fixed-pitch in Org files appears that way
+(set-face-attribute 'org-block nil    :foreground nil :inherit 'fixed-pitch)
+(set-face-attribute 'org-table nil    :inherit 'fixed-pitch)
+(set-face-attribute 'org-formula nil  :inherit 'fixed-pitch)
+(set-face-attribute 'org-code nil     :inherit '(shadow fixed-pitch))
+(set-face-attribute 'org-table nil    :inherit '(shadow fixed-pitch))
+(set-face-attribute 'org-verbatim nil :inherit '(shadow fixed-pitch))
+(set-face-attribute 'org-special-keyword nil :inherit '(font-lock-comment-face fixed-pitch))
+(set-face-attribute 'org-meta-line nil :inherit '(font-lock-comment-face fixed-pitch))
+(set-face-attribute 'org-checkbox nil  :inherit 'fixed-pitch))
+#+end_src
+
+* PROJECTILE, MAGIT and PDF-TOOLS
+
+#+begin_src emacs-lisp
+;; projectile
+(use-package projectile
+  :diminish projectile-mode
+  :config (projectile-mode)
+  :bind-keymap
+  ("C-c p" . projectile-command-map)
+  :init
+  (when (file-directory-p "~/Projects/Code")
+    (setq projectile-project-search-path '("~/Documents/projects")))
+  (setq projectile-switch-project-action #'projectile-dired))
+
+(use-package counsel-projectile
+ :after projectile
+ :config
+ (counsel-projectile-mode 1))
+
+;; magit
+(use-package magit
+  :commands (magit-status magit-get-current-branch)
+  :custom
+  (magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1))
+
+;; pdf-tools
+(use-package pdf-tools
+   :defer t
+   :config
+       (pdf-tools-install)
+       (setq-default pdf-view-display-size 'fit-page)
+   :bind (:map pdf-view-mode-map
+         ("\\" . hydra-pdftools/body)
+         ("<s-spc>" .  pdf-view-scroll-down-or-next-page)
+         ("g"  . pdf-view-first-page)
+         ("G"  . pdf-view-last-page)
+         ("l"  . image-forward-hscroll)
+         ("h"  . image-backward-hscroll)
+         ("j"  . pdf-view-next-page)
+         ("k"  . pdf-view-previous-page)
+         ("e"  . pdf-view-goto-page)
+         ("u"  . pdf-view-revert-buffer)
+         ("al" . pdf-annot-list-annotations)
+         ("ad" . pdf-annot-delete)
+         ("aa" . pdf-annot-attachment-dired)
+         ("am" . pdf-annot-add-markup-annotation)
+         ("at" . pdf-annot-add-text-annotation)
+         ("y"  . pdf-view-kill-ring-save)
+         ("i"  . pdf-misc-display-metadata)
+         ("s"  . pdf-occur)
+         ("b"  . pdf-view-set-slice-from-bounding-box)
+         ("r"  . pdf-view-reset-slice)))
+#+end_src
+
+* LSP AND TREESITTER
+
+** Treesitter
+
+#+begin_src emacs-lisp
+;; Treesitter
+(setq treesit-language-source-alist
+   '((bash "https://github.com/tree-sitter/tree-sitter-bash")
+     (c "https://github.com/tree-sitter/tree-sitter-c.git")
+     (python "https://github.com/tree-sitter/tree-sitter-python")
+     (elisp "https://github.com/Wilfred/tree-sitter-elisp")
+     (latex "https://github.com/latex-lsp/tree-sitter-latex")
+     (tex "https://github.com/latex-lsp/tree-sitter-latex")
+    ))
+
+(setq major-mode-remap-alist
+ '((python-mode . python-ts-mode)
+   (sh-mode . bash-ts-mode)
+   (c-mode . c-ts-mode)
+   ;;(latex-mode . latex-ts-mode) ; This does not work 
+   ;;(elisp-mode . elisp-ts-mode)
+    ))
+#+end_src
+
+** LSP
+
+#+begin_src emacs-lisp
+;; LSP
+(use-package lsp-mode)
+
+(add-hook 'latex-mode-hook #'lsp)
+(add-hook 'python-mode-hook #'lsp)
+(add-hook 'markdown-mode-hook #'lsp)
+
+(use-package lsp-ivy)
+
+(use-package company
+  :after lsp-mode
+  :hook (prog-mode . company-mode)
+  :bind (:map company-active-map
+         ("<tab>" . company-complete-selection))
+        (:map lsp-mode-map
+         ("<tab>" . company-indent-or-complete-common))
+  :custom
+  (company-minimum-prefix-length 1)
+  (company-idle-delay 0.0))
+
+(use-package company-box
+  :hook (company-mode . company-box-mode))
+
+(use-package lsp-ui
+  :hook (lsp-mode . lsp-ui-mode))
+
+;; Languages
+(setq lsp-tex-server 'digestif)
+
+#+end_src
+
+** Snippets
+
+#+begin_src emacs-lisp
+;; snippets
+;(add-to-list 'load-path
+;              "~/.emacs.d/plugins/yasnippet")
+;(require 'yasnippet)
+;(yas-global-mode 1)
+#+end_src
+
+** Helm-bibtex
+
+#+begin_src emacs-lisp
+;; Helm-bibtex
+(use-package helm-bibtex)
+(setq bibtex-completion-bibliography
+      '("~/.config/dot-files/latex/bib-database.bib"))
+#+end_src
+
+* USER DEFINITIONS
+
+#+begin_src emacs-lisp
+
+;;bookmarks
+(setq bookmark-default-file "~/.emacs.d/bookmarks")
+
+;; default pdf viewer
+(use-package openwith)
+(openwith-mode t)
+(setq openwith-associations '(("\\.djvu\\'" "okular" (file))))
+(setq openwith-associations '(("\\.pdf\\'" "okular" (file))))
+
+;; initial buffer
+(setq initial-buffer-choice "~/Sync/projects/wiki/README.org")
+#+end_src

@@ -1,8 +1,14 @@
+
 alias rena="prename -f 'y/A-Z/a-z/' * && prename -f 'y/_/-/' * && prename -f 'y/ /-/' * && prename -f 'y/,/-/' *"
 
 alias rm='trash'
+
 alias ..='cd ..'
-alias ll='ls -la'
+alias ...='cd ../..'
+
+alias ls='ls --color=auto'
+alias ll='ls -la --color=auto'
+
 alias vim='vi'
 alias nvim='echo "vim..."'
 
