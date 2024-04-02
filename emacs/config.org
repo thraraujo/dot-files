@@ -4,19 +4,11 @@
 #+STARTUP: showeverything
 #+OPTIONS: toc:2
 
-* TABLE OF CONTENTS :toc:
-- [[#important-programs-to-load-first][IMPORTANT PROGRAMS TO LOAD FIRST]]
-  - [[#melpa-package-manager][Melpa Package Manager]]
-  - [[#load-evil-mode][Load Evil Mode]]
-  - Useful configurations
-- [[#fonts][FONTS]]
-- [[#graphical-user-interface-tweaks][GRAPHICAL USER INTERFACE TWEAKS]]
-  - [[#disable-menubar-toolbars-and-scrollbars][Disable Menubar, Toolbars and Scrollbars]]
-  - [[#display-line-numbers-and-truncated-lines][Display Line Numbers and Truncated Lines]]
-- [[#org-mode][ORG MODE]]
-  - [[#enabling-table-of-contents][Enabling Table of Contents]]
-  - [[#enabling-org-bullets][Enabling Org Bullets]]
-- [[#which-key][WHICH-KEY]]
+# * TABLE OF CONTENTS :toc:
+# - [[#important-programs-to-load-first][IMPORTANT PROGRAMS TO LOAD FIRST]]
+  # - [[#melpa-package-manager][Melpa Package Manager]]
+  # - [[#load-evil-mode][Load Evil Mode]]
+# 
 
 * IMPORTANT PROGRAMS TO LOAD FIRST
 
@@ -46,7 +38,8 @@ First, we initialize the Melpa package manager.
 
 ** Evil Mode
 
-Activate evil mode. The second line activates evil mode in Ibuffer.
+Activate evil mode. The second line activates evil mode in Ibuffer. I will try to stop using evil
+for a couple of days. 
 
 #+begin_src emacs-lisp
 ;; Download Evil
@@ -62,37 +55,44 @@ Activate evil mode. The second line activates evil mode in Ibuffer.
 ** Useful configurations
 
 #+begin_src emacs-lisp
-(recentf-mode 1) ; recent files
-(save-place-mode 1); remember and restore the last cursor location of open files
-(icomplete-mode 1) ; completion in the minibuffers
+  (recentf-mode 1) ; recent files
+  (save-place-mode 1); remember and restore the last cursor location of open files
+  (icomplete-mode 1) ; completion in the minibuffers
 
-(savehist-mode 1) ; remembering what I type in minibuffers
-(setq history-length 25) ; set this history to 25
+  (savehist-mode 1) ; remembering what I type in minibuffers
+  (setq history-length 25) ; set this history to 25
 
-;; we want to avoid emacs messing with init file
-(setq custom-file (locate-user-emacs-file "custom-vars.el")) ; emacs save modification elsewhere
-(load custom-file 'noerror 'nomessage) ; it loads the custom file and does't mess with me
+  ;; we want to avoid emacs messing with init file
+  (setq custom-file (locate-user-emacs-file "custom-vars.el")) ; emacs save modification elsewhere
+  (load custom-file 'noerror 'nomessage) ; it loads the custom file and does't mess with me
 
-; avoid dialog boxes: they are annoying
-(setq use-dialog-box nil) 
+  ; avoid dialog boxes: they are annoying
+  (setq use-dialog-box nil) 
 
-; save backup files in ~/.emacs.d/emacs-backup/
-(setq backup-directory-alist '(("." . "~/.emacs.d/emacs-backup"))) 
+  ; save backup files in ~/.emacs.d/emacs-backup/
+  (setq backup-directory-alist '(("." . "~/.emacs.d/emacs-backup"))) 
 
-;; automatically revert buffers for changed files                      
-(global-auto-revert-mode 1) ; emacs watches files so that these are updated when changed outside emacs
-(setq global-auto-revert-non-file-buffers t) ; the dired is updated as well
+  ;; automatically revert buffers for changed files                      
+  (global-auto-revert-mode 1) ; emacs watches files so that these are updated when changed outside emacs
+  (setq global-auto-revert-non-file-buffers t) ; the dired is updated as well
 
-;; make esc quit prompts
-(global-set-key (kbd "<escape>") 'keyboard-escape-quit)
+  ;; make esc quit prompts
+  (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 
-; copy paste more efficiently
-(setq dired-dwim-target t)
+  ; copy paste more efficiently
+  (setq dired-dwim-target t)
 
-;; The following code changes a tab to 4 spaces
-(setq-default indent-tabs-mode nil)
-(setq-default tab-width 4)
-(setq indent-line-function 'insert-tab)
+  ;; The following code changes a tab to 4 spaces
+  (setq-default indent-tabs-mode nil)
+  (setq-default tab-width 4)
+  (setq indent-line-function 'insert-tab)
+
+;; Multiple cursors 
+;(require 'multiple-cursors)
+;(global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
+;(global-set-key (kbd "C->") 'mc/mark-next-like-this)
+;(global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
+;(global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
 
 ;; vterm
 (use-package vterm
@@ -230,8 +230,12 @@ Activate evil mode. The second line activates evil mode in Ibuffer.
 (setq inhibit-startup-message t)                   ; don't show the splash screen
 (setq visible-bell t)		                   ; flash when the bell rings
 
+(pixel-scroll-precision-mode 1)
 (use-package smooth-scrolling)                     ; For a better scrolling experience
 (smooth-scrolling-mode 1)
+
+(setq scroll-conservatively 10000)
+(setq scroll-margin 8)
 
 (tool-bar-mode -1)                                 ; turn off the toolbar
 (menu-bar-mode -1)                                 ; turn off the menubar
@@ -265,28 +269,29 @@ Activate evil mode. The second line activates evil mode in Ibuffer.
 
 ;; org-mode config
 (defun dw/org-mode-setup ()
-  (org-indent-mode)
-  (variable-pitch-mode 1)
-  (auto-fill-mode 0)
-  (visual-line-mode 1)
-  (setq evil-auto-indent nil))
+(org-indent-mode)
+(variable-pitch-mode 1)
+(auto-fill-mode 0)
+(visual-line-mode 1)
+(setq evil-auto-indent nil)
+)
 
 (use-package org
-  :hook (org-mode . dw/org-mode-setup)
-  :config
-  (setq org-ellipsis " ▾"
+:hook (org-mode . dw/org-mode-setup)
+:config
+(setq org-ellipsis " ▾"
         org-hide-emphasis-markers t))
 
 (use-package org-bullets
-  :after org
-  :hook (org-mode . org-bullets-mode)
-  :custom
-  (org-bullets-bullet-list '("◉" "○" "●" "○" "●" "○" "●")))
+:after org
+:hook (org-mode . org-bullets-mode)
+:custom
+(org-bullets-bullet-list '("◉" "○" "●" "○" "●" "○" "●")))
 
 ;; Replace list hyphen with dot
 (font-lock-add-keywords 'org-mode
                         '(("^ *\\([-]\\) "
-                          (0 (prog1 () (compose-region (match-beginning 1) (match-end 1) "•"))))))
+                        (0 (prog1 () (compose-region (match-beginning 1) (match-end 1) "•"))))))
 
 (with-eval-after-load 'org-faces
 
@@ -300,7 +305,7 @@ Activate evil mode. The second line activates evil mode in Ibuffer.
                 (org-level-6 . 1.1)
                 (org-level-7 . 1.1)
                 (org-level-8 . 1.1)))
-  (set-face-attribute (car face) nil :font "Fira Code Nerd Font" :weight 'regular :height (cdr face)))
+(set-face-attribute (car face) nil :font "Fira Code Nerd Font" :weight 'regular :height (cdr face)))
 
 ;; Ensure that anything that should be fixed-pitch in Org files appears that way
 (set-face-attribute 'org-block nil    :foreground nil :inherit 'fixed-pitch)
@@ -317,55 +322,54 @@ Activate evil mode. The second line activates evil mode in Ibuffer.
 * PROJECTILE, MAGIT and PDF-TOOLS
 
 #+begin_src emacs-lisp
-;; projectile
-(use-package projectile
-  :diminish projectile-mode
-  :config (projectile-mode)
-  :bind-keymap
-  ("C-c p" . projectile-command-map)
-  :init
-  (when (file-directory-p "~/Projects/Code")
-    (setq projectile-project-search-path '("~/Documents/projects")))
-  (setq projectile-switch-project-action #'projectile-dired))
+    ;; projectile
+    (use-package projectile
+      :diminish projectile-mode
+      :config (projectile-mode)
+      :bind-keymap
+      ("C-c p" . projectile-command-map)
+      :init
+      (setq projectile-project-search-path '("~/Sync/projects/work" "~/Sync/projects/wiki" "~/Sync/projects/aulas"))
+      (setq projectile-switch-project-action #'projectile-dired))
 
-(use-package counsel-projectile
- :after projectile
- :config
- (counsel-projectile-mode 1))
+    (use-package counsel-projectile
+     :after projectile
+     :config
+     (counsel-projectile-mode 1))
 
-;; magit
-(use-package magit
-  :commands (magit-status magit-get-current-branch)
-  :custom
-  (magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1))
+    ;; magit
+    (use-package magit
+      :commands (magit-status magit-get-current-branch)
+      :custom
+      (magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1))
 
-;; pdf-tools
-(use-package pdf-tools
-   :defer t
-   :config
-       (pdf-tools-install)
-       (setq-default pdf-view-display-size 'fit-page)
-   :bind (:map pdf-view-mode-map
-         ("\\" . hydra-pdftools/body)
-         ("<s-spc>" .  pdf-view-scroll-down-or-next-page)
-         ("g"  . pdf-view-first-page)
-         ("G"  . pdf-view-last-page)
-         ("l"  . image-forward-hscroll)
-         ("h"  . image-backward-hscroll)
-         ("j"  . pdf-view-next-page)
-         ("k"  . pdf-view-previous-page)
-         ("e"  . pdf-view-goto-page)
-         ("u"  . pdf-view-revert-buffer)
-         ("al" . pdf-annot-list-annotations)
-         ("ad" . pdf-annot-delete)
-         ("aa" . pdf-annot-attachment-dired)
-         ("am" . pdf-annot-add-markup-annotation)
-         ("at" . pdf-annot-add-text-annotation)
-         ("y"  . pdf-view-kill-ring-save)
-         ("i"  . pdf-misc-display-metadata)
-         ("s"  . pdf-occur)
-         ("b"  . pdf-view-set-slice-from-bounding-box)
-         ("r"  . pdf-view-reset-slice)))
+    ;; pdf-tools
+    (use-package pdf-tools
+       :defer t
+       :config
+           (pdf-tools-install)
+           (setq-default pdf-view-display-size 'fit-page)
+       :bind (:map pdf-view-mode-map
+             ("\\" . hydra-pdftools/body)
+             ("<s-spc>" .  pdf-view-scroll-down-or-next-page)
+             ("g"  . pdf-view-first-page)
+             ("G"  . pdf-view-last-page)
+             ("l"  . image-forward-hscroll)
+             ("h"  . image-backward-hscroll)
+             ("j"  . pdf-view-next-page)
+             ("k"  . pdf-view-previous-page)
+             ("e"  . pdf-view-goto-page)
+             ("u"  . pdf-view-revert-buffer)
+             ("al" . pdf-annot-list-annotations)
+             ("ad" . pdf-annot-delete)
+             ("aa" . pdf-annot-attachment-dired)
+             ("am" . pdf-annot-add-markup-annotation)
+             ("at" . pdf-annot-add-text-annotation)
+             ("y"  . pdf-view-kill-ring-save)
+             ("i"  . pdf-misc-display-metadata)
+             ("s"  . pdf-occur)
+             ("b"  . pdf-view-set-slice-from-bounding-box)
+             ("r"  . pdf-view-reset-slice)))
 #+end_src
 
 * LSP AND TREESITTER
@@ -428,19 +432,22 @@ Activate evil mode. The second line activates evil mode in Ibuffer.
 
 ** Snippets
 
+Yasnippet and LSP are not compatible. 
+
 #+begin_src emacs-lisp
 ;; snippets
-;(add-to-list 'load-path
-;              "~/.emacs.d/plugins/yasnippet")
-;(require 'yasnippet)
-;(yas-global-mode 1)
+; (setq yas-snippet-dirs
+; '("~/.emacs.d/snippets"   ;; personal snippets
+    ; ))
+
+(yas-global-mode 1)
 #+end_src
 
-** Helm-bibtex
+** Helm-bibtex/Ivy-bibtex
 
 #+begin_src emacs-lisp
-;; Helm-bibtex
 (use-package helm-bibtex)
+(use-package ivy-bibtex)
 (setq bibtex-completion-bibliography
       '("~/.config/dot-files/latex/bib-database.bib"))
 #+end_src
@@ -495,6 +502,7 @@ Activate evil mode. The second line activates evil mode in Ibuffer.
 (setq dashboard-show-shortcuts nil)
 
 ;; items
+(setq dashboard-projects-backend 'projectile)
 (setq dashboard-icon-type 'all-the-icons)  ; use `all-the-icons' package
 (setq dashboard-items '((recents   . 5)
                         (bookmarks . 5)
