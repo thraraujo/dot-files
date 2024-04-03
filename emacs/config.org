@@ -462,8 +462,8 @@ Yasnippet and LSP are not compatible.
 ;; default pdf viewer
 (use-package openwith)
 (openwith-mode t)
-(setq openwith-associations '(("\\.djvu\\'" "okular" (file))))
-(setq openwith-associations '(("\\.pdf\\'" "okular" (file))))
+(setq openwith-associations '(("\\.djvu\\'" "evince" (file))))
+(setq openwith-associations '(("\\.pdf\\'" "evince" (file))))
 
 ;; initial buffer
 ;(setq initial-buffer-choice "~/Sync/projects/wiki/README.org")
