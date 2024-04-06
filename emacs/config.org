@@ -1,4 +1,4 @@
-#+TITLE: GNU Emacs Config
+#+TIkTLE: GNU Emacs Config
 #+AUTHOR: Thiago Araujo
 #+DESCRIPTION: Personal Emacs config.
 #+STARTUP: showeverything
@@ -50,6 +50,12 @@ for a couple of days.
 (require 'evil)
 (evil-mode 1)
 (setq evil-emacs-state-modes (delq 'ibuffer-mode evil-emacs-state-modes))
+#+end_src
+
+** Keybinding
+
+#+begin_src emacs-lisp
+(global-set-key (kbd "C-u") 'delete-backward-char)
 #+end_src
 
 ** Useful configurations
