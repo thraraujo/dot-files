@@ -455,7 +455,7 @@ Yasnippet and LSP are not compatible.
 (use-package helm-bibtex)
 (use-package ivy-bibtex)
 (setq bibtex-completion-bibliography
-      '("~/Sync/project/wiki/research/bib-database.bib"))
+      '("~/Sync/projects/wiki/research/bib-database.bib"))
 #+end_src
 
 * USER DEFINITIONS
