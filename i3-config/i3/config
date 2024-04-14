@@ -89,7 +89,9 @@ bindsym $mod+Shift+minus move scratchpad
 # Show the first scratchpad window
 bindsym $mod+minus scratchpad show
 
-exec picom
+# Transparency with picom compositor
+# exec picom
+exec_always picom -f
 
 exec --no-startup-id nitrogen --restore
 
