@@ -166,11 +166,19 @@ for a couple of days.
 
 #+begin_src emacs-lisp
 ;; Fonts
-(set-face-attribute 'default nil :font "Fira Code Nerd Font")
+;(set-face-attribute 'default nil :font "Fira Code Nerd Font")
+;(set-face-attribute 'default nil :font "Hack Nerd Font")
+(set-face-attribute 'default nil :font "Jet Brains Mono Nerd Font")
+
 ;; Set the fixed pitch face
-(set-face-attribute 'fixed-pitch nil :font "Fira Code Nerd Font")
+;(set-face-attribute 'fixed-pitch nil :font "Fira Code Nerd Font")
+;(set-face-attribute 'fixed-pitch nil :font "Hack Nerd Font")
+(set-face-attribute 'fixed-pitch nil :font "Jet Brains Mono Nerd Font")
+
 ;; Set the variable pitch face
-(set-face-attribute 'variable-pitch nil :font "Fira Code Nerd Font")
+;(set-face-attribute 'variable-pitch nil :font "Fira Code Nerd Font")
+;(set-face-attribute 'variable-pitch nil :font "Hack Nerd Font")
+(set-face-attribute 'variable-pitch nil :font "Jet Brains Mono Nerd Font")
 #+end_src
 
 * UI ELEMENTS

@@ -6,26 +6,32 @@
 %%%%%%%%%%%%%%%%%%%%%%%% 
 % FUNDAMENTAL PACKAGES 
 %%%%%%%%%%%%%%%%%%%%%%%% 
-\RequirePackage[textwidth = 460 pt, textheight = 700 pt]{geometry}
+\RequirePackage{microtype}
+\RequirePackage[margin=3cm]{geometry}
 \RequirePackage{graphicx} % Enhanced graphics package. Includes \includegraphics
+
+%%%%%%%%%%%%%%%%%%%%%%%% 
+% FONTS & LUALATEX
+%%%%%%%%%%%%%%%%%%%%%%%% 
+\RequirePackage[T1]{fontenc} % In case I am compiling with Latex. UTF-8 is not necessary anymore
+\RequirePackage[utf8]{inputenc}
+
 \RequirePackage{amsthm,amssymb,amsmath} % AMS math typesetting packages.
 \RequirePackage{mathtools} % This package enhances the ams packages above
 \RequirePackage{bm} % Some enhanced math boldface
+\RequirePackage{bbold} % bbold mathfamily
+\RequirePackage{mathrsfs} % mathscript but does not overwrite mathcal
 
-%%%%%%%%%%%%%%%%%%%%%%%% 
-% LUALTEX & FONTS
-%%%%%%%%%%%%%%%%%%%%%%%% 
 %\RequirePackage{fontspec} % For fonts management
 %\RequirePackage{polyglossia} % Babel replacement
 %\RequirePackage{luacode} % help to include lua snippets in the file 
 %\RequirePackage{fontawesome5, academicons} % A neat list of symbols
-%\RequirePackage[T1]{fontenc} % In case I am compiling with Latex. UTF-8 is not necessary anymore
-%\RequirePackage[utf8]{inputenc}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%% 
 % HYPERLINKS & COLORS
 %%%%%%%%%%%%%%%%%%%%%%%% 
-\RequirePackage[table]{xcolor} % enhanced color package
+\RequirePackage{xcolor} % enhanced color package
 \RequirePackage{hyperref}
 
 %%%%%%%%%%%%%%%%%%%%%%%% 
