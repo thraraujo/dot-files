@@ -48,9 +48,9 @@ _comp_options+=(globdots)		# Include hidden files.
 # [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Load aliases, shortcuts (and keybindings) and paths if existent.
-# [ -f "$HOME/.config/dot-files/zsh-config/shortcutrc" ] && source "$HOME/.config/dot-files/zsh-config/shortcutrc"
-[ -f "$HOME/.config/dot-files/zsh-config/aliasrc" ] && source "$HOME/.config/dot-files/zsh-config/aliasrc"
-[ -f "$HOME/.config/dot-files/zsh-config/pathrc" ] && source "$HOME/.config/dot-files/zsh-config/pathrc"
+# [ -f "$HOME/.config/dot-files/sh-config/shortcutrc" ] && source "$HOME/.config/dot-files/sh-config/shortcutrc"
+[ -f "$HOME/.config/dot-files/sh-config/aliasrc" ] && source "$HOME/.config/dot-files/sh-config/aliasrc"
+[ -f "$HOME/.config/dot-files/sh-config/pathrc" ] && source "$HOME/.config/dot-files/sh-config/pathrc"
 
 # load starship prompt
 eval "$(starship init zsh)"
