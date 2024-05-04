@@ -238,8 +238,12 @@ for a couple of days.
 (add-to-list 'default-frame-alist '(alpha-background . 95))
 
 ;; Dracula theme
-(add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
-(load-theme 'dracula t)
+; (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
+; (load-theme 'dracula t)
+
+;; Catppuccin theme
+(load-theme 'catppuccin :no-confirm)
+
 
 (use-package doom-modeline
 :ensure t
