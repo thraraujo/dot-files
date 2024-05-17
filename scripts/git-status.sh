@@ -11,7 +11,6 @@ gitRepos=(
     $HOME/Sync/projects/work/research-reviews/
     $HOME/Sync/projects/work/q-bosons/
     $HOME/Sync/projects/work/gauge-integrability/
-    $HOME/Sync/projects/work/spectral-curves/
     $HOME/Sync/projects/work/pySymmPol
 )
 
