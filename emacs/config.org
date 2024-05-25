@@ -55,7 +55,7 @@ for a couple of days.
 ** Keybinding
 
 #+begin_src emacs-lisp
-(global-set-key (kbd "C-u") 'delete-backward-char) ;; Delete backwards 
+(global-set-key (kbd "C-0") 'delete-backward-char) ;; Delete backwards 
 (global-set-key [remap list-buffers] 'ibuffer)     ;; C-x C-b is ibuffer
 (global-set-key  (kbd "M-i") 'imenu)     ;; C-x C-b is ibuffer
 #+end_src
