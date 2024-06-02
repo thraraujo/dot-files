@@ -1,10 +1,14 @@
-% DEFINITIONS PDFLATEX
+% DEFINITIONS LUALATEX
 
 %%%%%%%%%%%%%%%%%%%%%%%%
 % FONTS AND LANGUAGES
 %%%%%%%%%%%%%%%%%%%%%%%% 
-\usepackage[T1]{fontenc} % In case I am compiling with Latex. UTF-8 is not necessary anymore
-\usepackage[utf8]{inputenc}
+\usepackage{fontspec} % For fonts management
+\usepackage{polyglossia} % Babel replacement
+\usepackage{luacode} % help to include lua snippets in the file 
+\usepackage{fontawesome5, academicons} % A neat list of symbols
+\setdefaultlanguage[variant=brazilian]{portuguese}
+%\setdefaultlanguage{english}
 
 %%%%%%%%%%%%%%%%%%%%%%%%
 % ADDITIONAL PACKAGES
