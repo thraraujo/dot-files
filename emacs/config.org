@@ -187,7 +187,6 @@ for a couple of days.
 ;(set-face-attribute 'variable-pitch nil :font "Jet Brains Mono Nerd Font")
 ;(set-face-attribute 'variable-pitch nil :font "Iosevka Nerd Font")
 ;(set-face-attribute 'variable-pitch nil :font "Inconsolata Nerd Font")
-
 #+end_src
 
 * UI ELEMENTS

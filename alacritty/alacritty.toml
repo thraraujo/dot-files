@@ -5,19 +5,19 @@ TERM = "xterm-256color"
 size = 11.0
 
 [font.bold]
-family = "Fira Code Nerd Font"
+family = "Hack Nerd Font"
 style = "Bold"
 
 [font.bold_italic]
-family = "Fira Code Nerd Font"
+family = "Hack Nerd Font"
 style = "Bold Italic"
 
 [font.italic]
-family = "Fira Code Nerd Font"
+family = "Hack Nerd Font"
 style = "Italic"
 
 [font.normal]
-family = "Fira Code Nerd Font"
+family = "Hack Nerd Font"
 style = "Regular"
 
 [font.offset]
@@ -26,13 +26,13 @@ y = 1
 
 [[keyboard.bindings]]
 action = "Paste"
-key = "V"
-mods = "Control|Shift"
+key = "v"
+mods = "Control"
 
 [[keyboard.bindings]]
 action = "Copy"
-key = "C"
-mods = "Control|Shift"
+key = "c"
+mods = "Control"
 
 [[keyboard.bindings]]
 action = "PasteSelection"
