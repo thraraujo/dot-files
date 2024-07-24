@@ -24,8 +24,8 @@ default_border pixel 1
 default_floating_border pixel 1
 
 # Set inner/outer gaps
-gaps inner 2px
-gaps outer 3px
+# gaps inner 2px
+# gaps outer 3px
 
 ###########
 ### END ###
@@ -72,17 +72,20 @@ floating_modifier $mod
 
 # move tiling windows via drag & drop by left-clicking into the title bar,
 # or left-clicking anywhere into the window while holding the floating modifier.
-tiling_drag modifier titlebar
+# tiling_drag modifier titlebar
 
 # start applications
-bindsym $mod+t exec alacritty
+bindsym $mod+t exec gnome-terminal
 
 bindsym $mod+Return exec emacsclient -a "" -c
 
 bindsym $mod+Shift+w exec firefox
 #assign [class="firefox"] 9
 
-bindsym $mod+w exec flatpak run com.vivaldi.Vivaldi
+bindsym $mod+w exec flatpak run com.brave.Browser
+
+# i3-lock
+bindsym $mod+b exec i3lock -c 24251A
 
 # Make the currently focused window a scratchpad
 bindsym $mod+Shift+minus move scratchpad

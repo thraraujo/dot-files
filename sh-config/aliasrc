@@ -9,11 +9,10 @@ alias ...='cd ../..'
 alias ls='ls --color=auto'
 alias ll='ls -la --color=auto'
 
-alias vim='nvim'
+alias vim='vi'
+alias nvim='vi'
 
 alias pbcopy='xclip -selection clipboard'
 alias pbpaste='xclip -selection clipboard -o'
 
 alias clear-cache='sudo sysctl vm.drop_caches=3'
-
-alias work="cd $HOME/Sync/projects/work/"
