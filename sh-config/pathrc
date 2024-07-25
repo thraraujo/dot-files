@@ -9,3 +9,6 @@ export PATH="$HOME/.config/emacs/bin:$PATH"
 
 # Path Cargo
 export PATH="$HOME/.cargo/bin:$PATH"
+
+# Path Texlab
+export PATH="$HOME/.cargo/bin/texlab:$PATH"

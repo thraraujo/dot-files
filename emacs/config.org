@@ -63,48 +63,52 @@ for a couple of days.
 ** Useful configurations
 
 #+begin_src emacs-lisp
-  (recentf-mode 1) ; recent files
-  (save-place-mode 1); remember and restore the last cursor location of open files
-  (icomplete-mode 1) ; completion in the minibuffers
+    (recentf-mode 1) ; recent files
+    (save-place-mode 1); remember and restore the last cursor location of open files
+    (icomplete-mode 1) ; completion in the minibuffers
 
-  (savehist-mode 1) ; remembering what I type in minibuffers
-  (setq history-length 25) ; set this history to 25
+    (savehist-mode 1) ; remembering what I type in minibuffers
+    (setq history-length 25) ; set this history to 25
 
-  ;; we want to avoid emacs messing with init file
-  (setq custom-file (locate-user-emacs-file "custom-vars.el")) ; emacs save modification elsewhere
-  (load custom-file 'noerror 'nomessage) ; it loads the custom file and does't mess with me
+    ;; we want to avoid emacs messing with init file
+    (setq custom-file (locate-user-emacs-file "custom-vars.el")) ; emacs save modification elsewhere
+    (load custom-file 'noerror 'nomessage) ; it loads the custom file and does't mess with me
 
-  ; avoid dialog boxes: they are annoying
-  (setq use-dialog-box nil) 
+    ; avoid dialog boxes: they are annoying
+    (setq use-dialog-box nil) 
 
-  ; save backup files in ~/.emacs.d/emacs-backup/
-  (setq backup-directory-alist '(("." . "~/.emacs.d/emacs-backup"))) 
+    ; save backup files in ~/.emacs.d/emacs-backup/
+    (setq backup-directory-alist '(("." . "~/.emacs.d/emacs-backup"))) 
 
-  ;; automatically revert buffers for changed files                      
-  (global-auto-revert-mode 1) ; emacs watches files so that these are updated when changed outside emacs
-  (setq global-auto-revert-non-file-buffers t) ; the dired is updated as well
+    ;; automatically revert buffers for changed files                      
+    (global-auto-revert-mode 1) ; emacs watches files so that these are updated when changed outside emacs
+    (setq global-auto-revert-non-file-buffers t) ; the dired is updated as well
 
-  ;; make esc quit prompts
-  (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
+    ;; make esc quit prompts
+    (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 
-  ; copy paste more efficiently
-  (setq dired-dwim-target t)
+    ; copy paste more efficiently
+    (setq dired-dwim-target t)
 
-  ;; The following code changes a tab to 4 spaces
-  (setq-default indent-tabs-mode nil)
-  (setq-default tab-width 4)
-  (setq indent-line-function 'insert-tab)
+    ;; The following code changes a tab to 4 spaces
+    (setq-default indent-tabs-mode nil)
+    (setq-default tab-width 4)
+    (setq indent-line-function 'insert-tab)
 
-;; Multiple cursors 
-;(require 'multiple-cursors)
-;(global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
-;(global-set-key (kbd "C->") 'mc/mark-next-like-this)
-;(global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
-;(global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
+  ;; Multiple cursors 
+  ;(require 'multiple-cursors)
+  ;(global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
+  ;(global-set-key (kbd "C->") 'mc/mark-next-like-this)
+  ;(global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
+  ;(global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
 
-;; vterm
-(use-package vterm
-    :ensure t)
+  ;; vterm
+  (use-package vterm
+      :ensure t)
+
+  ;; Path from Shell
+  (when (daemonp)
+    (exec-path-from-shell-initialize))
 #+end_src
 
 * AUTOCOMPLETION AND FONTS
@@ -413,23 +417,23 @@ for a couple of days.
 ** Treesitter
 
 #+begin_src emacs-lisp
-;; Treesitter
-(setq treesit-language-source-alist
-   '((bash "https://github.com/tree-sitter/tree-sitter-bash")
-     (c "https://github.com/tree-sitter/tree-sitter-c.git")
-     (python "https://github.com/tree-sitter/tree-sitter-python")
-     (elisp "https://github.com/Wilfred/tree-sitter-elisp")
-     (latex "https://github.com/latex-lsp/tree-sitter-latex")
-     (tex "https://github.com/latex-lsp/tree-sitter-latex")
-    ))
+  ;; Treesitter
+  (setq treesit-language-source-alist
+     '((bash "https://github.com/tree-sitter/tree-sitter-bash")
+       (c "https://github.com/tree-sitter/tree-sitter-c.git")
+       (python "https://github.com/tree-sitter/tree-sitter-python")
+       (elisp "https://github.com/Wilfred/tree-sitter-elisp")
+       (latex "https://github.com/latex-lsp/tree-sitter-latex")
+       (tex "https://github.com/latex-lsp/tree-sitter-latex")
+      ))
 
-(setq major-mode-remap-alist
- '((python-mode . python-ts-mode)
-   (sh-mode . bash-ts-mode)
-   (c-mode . c-ts-mode)
-   ;;(latex-mode . latex-ts-mode) ; This does not work 
-   ;;(elisp-mode . elisp-ts-mode)
-    ))
+  (setq major-mode-remap-alist
+   '((python-mode . python-ts-mode)
+     (sh-mode . bash-ts-mode)
+     (c-mode . c-ts-mode)
+     ;;(latex-mode . latex-ts-mode) ; This does not work 
+     ;;(elisp-mode . elisp-ts-mode)
+      ))
 #+end_src
 
 ** LSP
@@ -462,8 +466,8 @@ for a couple of days.
   :hook (lsp-mode . lsp-ui-mode))
 
 ;; Languages
-(setq lsp-tex-server 'digestif)
-
+(setq lsp-tex-server 'texlab)
+;(setq lsp-tex-server-command "/home/thiago/.cargo/bin/texlab")
 #+end_src
 
 ** Snippets
