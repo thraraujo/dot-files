@@ -36,3 +36,17 @@
   "Function to open my dot files"
   (interactive)
   (find-file "~/.config/scripts"))
+
+
+
+;; Here I want to define a function that runs my git-status command
+
+(defun generate-numbers ()
+  (interactive)
+  (dotimes (i 10)
+    (print i)))
+
+(defun show-numbers-in-buffer ()
+  (interactive)
+  (with-output-to-temp-buffer "*Output Buffer*"
+    (generate-numbers)))

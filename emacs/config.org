@@ -480,6 +480,7 @@ Yasnippet and LSP are not compatible.
 ; '("~/.emacs.d/snippets"   ;; personal snippets
     ; ))
 
+(require 'yasnippet)
 (yas-global-mode 1)
 #+end_src
 
@@ -496,17 +497,22 @@ Yasnippet and LSP are not compatible.
 
 #+begin_src emacs-lisp
 
-;;bookmarks
-(setq bookmark-default-file "~/.emacs.d/bookmarks")
+  ;;bookmarks
+  (setq bookmark-default-file "~/.emacs.d/bookmarks")
 
-;; default pdf viewer
-(use-package openwith)
-(openwith-mode t)
-(setq openwith-associations '(("\\.djvu\\'" "zathura" (file))))
-(setq openwith-associations '(("\\.pdf\\'" "zathura" (file))))
+  ;; default pdf viewer
+  (use-package openwith)
+  (setq openwith-associations '(("\\.djvu\\'" "zathura" (file))))
+  (setq openwith-associations '(("\\.pdf\\'" "zathura" (file))))
+  (openwith-mode t)
 
-;; initial buffer
-;(setq initial-buffer-choice "~/Sync/projects/wiki/README.org")
+(unless (package-installed-p 'crux)
+  (package-refresh-contents)
+  (package-install 'crux))
+  (global-set-key (kbd "C-c o") #'crux-open-with)
+
+  ;; initial buffer
+  ;(setq initial-buffer-choice "~/Sync/projects/wiki/README.org")
 #+end_src
 
 ** Dashboard
