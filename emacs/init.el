@@ -41,3 +41,4 @@
   "Function to run git-status command"
   (interactive)
   (shell-command "git-status"))
+

@@ -24,8 +24,8 @@ default_border pixel 1
 default_floating_border pixel 1
 
 # Set inner/outer gaps
-# gaps inner 2px
-# gaps outer 3px
+gaps inner 2px
+gaps outer 3px
 
 ###########
 ### END ###
@@ -76,14 +76,14 @@ floating_modifier $mod
 # tiling_drag modifier titlebar
 
 # start applications
-bindsym $mod+t exec gnome-terminal
+bindsym $mod+t exec alacritty
 
 bindsym $mod+Return exec emacsclient -a "" -c
 
 bindsym $mod+Shift+w exec firefox
 #assign [class="firefox"] 9
 
-bindsym $mod+w exec flatpak run com.brave.Browser
+bindsym $mod+w exec brave-browser
 
 # i3-lock
 bindsym $mod+b exec i3lock -c 24251A

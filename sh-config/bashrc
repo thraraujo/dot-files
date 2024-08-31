@@ -5,10 +5,18 @@
 # |____/ \__,_|___/_| |_|_|  \___|
 # 
 
+# There are 3 different types of shells in bash: the login shell, normal shell
+# and interactive shell. Login shells read ~/.profile and interactive shells
+# read ~/.bashrc; in our setup, /etc/profile sources ~/.bashrc - thus all
+# settings made here will also take effect in a login shell.
+#
+# NOTE: It is recommended to make language settings in ~/.profile rather than
+# here, since multilingual X sessions would not work properly if LANG is over-
+# ridden in every subshell.
 
 # Enable colors and change prompt:
-PS1="%B%{$fg[cyan]%}[%{$fg[blue]%}%n%{$fg[magenta]%}@%{$fg[blue]%}%M
-%{$fg[magenta]%}%~%{$fg[cyan]%}]%{$reset_color%}%b~%b "
+# PS1="%B%{$fg[cyan]%}[%{$fg[blue]%}%n%{$fg[magenta]%}@%{$fg[blue]%}%M
+# %{$fg[magenta]%}%~%{$fg[cyan]%}]%{$reset_color%}%b~%b "
 
 # History in cache directory:
 HISTSIZE=10000
@@ -25,5 +33,6 @@ HISTFILE=~/.cache/bash/history
 # load starship prompt
 eval "$(starship init bash)"
 
-
-export EDITOR=vi
+export EDITOR=vim
+    
+fastfetch
