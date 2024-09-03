@@ -62,53 +62,53 @@ for a couple of days.
 
 ** Useful configurations
 
-#+begin_src emacs-lisp
-    (recentf-mode 1) ; recent files
-    (save-place-mode 1); remember and restore the last cursor location of open files
-    (icomplete-mode 1) ; completion in the minibuffers
+#dbegin_src emacs-lisp
+(recentf-mode 1) ; recent files
+(save-place-mode 1); remember and restore the last cursor location of open files
+(icomplete-mode 1) ; completion in the minibuffers
 
-    (savehist-mode 1) ; remembering what I type in minibuffers
-    (setq history-length 25) ; set this history to 25
+(savehist-mode 1) ; remembering what I type in minibuffers
+(setq history-length 25) ; set this history to 25
 
-    ;; we want to avoid emacs messing with init file
-    (setq custom-file (locate-user-emacs-file "custom-vars.el")) ; emacs save modification elsewhere
-    (load custom-file 'noerror 'nomessage) ; it loads the custom file and does't mess with me
+;; we want to avoid emacs messing with init file
+(setq custom-file (locate-user-emacs-file "custom-vars.el")) ; emacs save modification elsewhere
+(load custom-file 'noerror 'nomessage) ; it loads the custom file and does't mess with me
 
-    ; avoid dialog boxes: they are annoying
-    (setq use-dialog-box nil) 
+; avoid dialog boxes: they are annoying
+(setq use-dialog-box nil) 
 
-    ; save backup files in ~/.emacs.d/emacs-backup/
-    (setq backup-directory-alist '(("." . "~/.emacs.d/emacs-backup"))) 
+; save backup files in ~/.emacs.d/emacs-backup/
+(setq backup-directory-alist '(("." . "~/.emacs.d/emacs-backup"))) 
 
-    ;; automatically revert buffers for changed files                      
-    (global-auto-revert-mode 1) ; emacs watches files so that these are updated when changed outside emacs
-    (setq global-auto-revert-non-file-buffers t) ; the dired is updated as well
+;; automatically revert buffers for changed files                      
+(global-auto-revert-mode 1) ; emacs watches files so that these are updated when changed outside emacs
+(setq global-auto-revert-non-file-buffers t) ; the dired is updated as well
 
-    ;; make esc quit prompts
-    (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
+;; make esc quit prompts
+(global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 
-    ; copy paste more efficiently
-    (setq dired-dwim-target t)
+; copy paste more efficiently
+(setq dired-dwim-target t)
 
-    ;; The following code changes a tab to 4 spaces
-    (setq-default indent-tabs-mode nil)
-    (setq-default tab-width 4)
-    (setq indent-line-function 'insert-tab)
+;; The following code changes a tab to 4 spaces
+(setq-default indent-tabs-mode nil)
+(setq-default tab-width 4)
+(setq indent-line-function 'insert-tab)
 
-  ;; Multiple cursors 
-  ;(require 'multiple-cursors)
-  ;(global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
-  ;(global-set-key (kbd "C->") 'mc/mark-next-like-this)
-  ;(global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
-  ;(global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
+;; Multiple cursors 
+;(require 'multiple-cursors)
+;(global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
+;(global-set-key (kbd "C->") 'mc/mark-next-like-this)
+;(global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
+;(global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
 
-  ;; vterm
-  (use-package vterm
-      :ensure t)
+;; vterm
+(use-package vterm
+    :ensure t)
 
-  ;; Path from Shell
-  (when (daemonp)
-    (exec-path-from-shell-initialize))
+;; Path from Shell
+(when (daemonp)
+(exec-path-from-shell-initialize))
 #+end_src
 
 * AUTOCOMPLETION AND FONTS
@@ -173,21 +173,21 @@ for a couple of days.
 #+begin_src emacs-lisp
 ;; Fonts
 (set-face-attribute 'default nil :font "Fira Code Nerd Font 14")
-;(set-face-attribute 'default nil :font "Hack Nerd Font")
+;(set-face-attribute 'default nil :font "Hack Nerd Font 14")
 ;(set-face-attribute 'default nil :font "Jet Brains Mono Nerd Font")
 ;(set-face-attribute 'default nil :font "Iosevka Nerd Font")
 ;(set-face-attribute 'default nil :font "Inconsolata Nerd Font")
 
 ;; Set the fixed pitch face
 (set-face-attribute 'fixed-pitch nil :font "Fira Code Nerd Font 14")
-;(set-face-attribute 'fixed-pitch nil :font "Hack Nerd Font")
+;(set-face-attribute 'fixed-pitch nil :font "Hack Nerd Font 14")
 ;(set-face-attribute 'fixed-pitch nil :font "Jet Brains Mono Nerd Font")
 ;(set-face-attribute 'fixed-pitch nil :font "Iosevka Nerd Font")
 ;(set-face-attribute 'fixed-pitch nil :font "Inconsolata Nerd Font")
 
 ;; Set the variable pitch face
 (set-face-attribute 'variable-pitch nil :font "Fira Code Nerd Font 14")
-;(set-face-attribute 'variable-pitch nil :font "Hack Nerd Font")
+;(set-face-attribute 'variable-pitch nil :font "Hack Nerd Font 14")
 ;(set-face-attribute 'variable-pitch nil :font "Jet Brains Mono Nerd Font")
 ;(set-face-attribute 'variable-pitch nil :font "Iosevka Nerd Font")
 ;(set-face-attribute 'variable-pitch nil :font "Inconsolata Nerd Font")
@@ -212,14 +212,25 @@ for a couple of days.
 (use-package all-the-icons-completion)
 (use-package all-the-icons-ibuffer)
 
-(use-package all-the-icons-dired
-:hook (dired-mode . (lambda () (all-the-icons-dired-mode t))))
+;; IMPORTANT: Here I need to do M-x all-the-icons-install-fonts
+
+(use-package all-the-icons-dired)
+(add-hook 'dired-mode-hook 'treemacs-icons-dired-mode)
 
 ; remove all-the-icons
-(use-package nerd-icons-dired)
 (use-package nerd-icons-ibuffer)
 (use-package nerd-icons-ivy-rich)
 (use-package nerd-icons-completion)
+
+; Icons for tree
+;(use-package treemacs-icons-dired)
+;(use-package nerd-icons-dired
+;  :hook
+;  (dired-mode . nerd-icons-dired-mode))
+
+(use-package treemacs-nerd-icons
+:config
+(treemacs-load-theme "nerd-icons"))
 #+end_src
 
 ** Theme and modeline
