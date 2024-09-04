@@ -95,7 +95,8 @@ bindsym $mod+minus scratchpad show
 
 # Transparency with picom compositor
 # exec picom
-exec_always picom -f
+# exec_always picom -f
+exec --no-startup-id picom
 
 exec --no-startup-id nitrogen --restore
 
