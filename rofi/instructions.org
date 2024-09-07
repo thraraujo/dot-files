@@ -1,0 +1,7 @@
+** Here I can follow the instruction of the repo 
+
+https://github.com/catppuccin/rofi.git
+ 
+and in particular of 
+
+https://github.com/catppuccin/rofi/tree/main/basic

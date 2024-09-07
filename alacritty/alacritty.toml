@@ -138,71 +138,165 @@ y = 6
 # Instructions
 # https://github.com/alacritty/alacritty/blob/master/extra/man/alacritty.5.scd
 
-[colors.primary]
+# [colors.primary]
+# 
+# background = "#282a36"
+# foreground = "#f8f8f2"
+# bright_foreground = "#ffffff"
+# 
+# [colors.cursor]
+# 
+# text = "#282a36"
+# cursor = "#f8f8f2"
+# 
+# [colors.vi_mode_cursor]
+# 
+# text = "CellBackground"
+# cursor = "CellForeground"
+# 
+# [colors.selection]
+# 
+# text = "CellForeground"
+# background = "#44475a"
+# 
+# [colors.normal]
+# 
+# black = "#21222c"
+# red = "#ff5555"
+# green = "#50fa7b"
+# yellow = "#f1fa8c"
+# blue = "#bd93f9"
+# magenta = "#ff79c6"
+# cyan = "#8be9fd"
+# white = "#f8f8f2"
+# 
+# [colors.bright]
+# 
+# black = "#6272a4"
+# red = "#ff6e6e"
+# green = "#69ff94"
+# yellow = "#ffffa5"
+# blue = "#d6acff"
+# magenta = "#ff92df"
+# cyan = "#a4ffff"
+# white = "#ffffff"
+# 
+# [colors.search.matches]
+# 
+# foreground = "#44475a"
+# background = "#50fa7b"
+# 
+# [colors.search.focused_match]
+# 
+# foreground = "#44475a"
+# background = "#ffb86c"
+# 
+# [colors.footer_bar]
+# 
+# background = "#282a36"
+# foreground = "#f8f8f2"
+# 
+# [colors.hints.start]
+# 
+# foreground = "#282a36"
+# background = "#f1fa8c"
+# 
+# [colors.hints.end]
+# 
+# foreground = "#f1fa8c"
+# background = "#282a36"
 
-background = "#282a36"
-foreground = "#f8f8f2"
-bright_foreground = "#ffffff"
+
+##################################################
+##################################################
+
+# Catppuccin theme for Alacritty
+# https://github.com/catppuccin/alacritty
+# I couldn't use the import command, so I added the theme here.
+# Fix this later
+
+#import = [
+  # uncomment the flavour you want below:
+  # "~/.config/alacritty/catppuccin-latte.toml"
+  # "~/.config/alacritty/catppuccin-frappe.toml"
+  # "$HOME/.config/alacritty/catppuccin-macchiato.toml"
+  # "~/.config/alacritty/catppuccin-mocha.toml"
+#]
+
+# macchiato
+
+[colors.primary]
+background = "#24273a"
+foreground = "#cad3f5"
+dim_foreground = "#8087a2"
+bright_foreground = "#cad3f5"
 
 [colors.cursor]
-
-text = "#282a36"
-cursor = "#f8f8f2"
+text = "#24273a"
+cursor = "#f4dbd6"
 
 [colors.vi_mode_cursor]
-
-text = "CellBackground"
-cursor = "CellForeground"
-
-[colors.selection]
-
-text = "CellForeground"
-background = "#44475a"
-
-[colors.normal]
-
-black = "#21222c"
-red = "#ff5555"
-green = "#50fa7b"
-yellow = "#f1fa8c"
-blue = "#bd93f9"
-magenta = "#ff79c6"
-cyan = "#8be9fd"
-white = "#f8f8f2"
-
-[colors.bright]
-
-black = "#6272a4"
-red = "#ff6e6e"
-green = "#69ff94"
-yellow = "#ffffa5"
-blue = "#d6acff"
-magenta = "#ff92df"
-cyan = "#a4ffff"
-white = "#ffffff"
+text = "#24273a"
+cursor = "#b7bdf8"
 
 [colors.search.matches]
-
-foreground = "#44475a"
-background = "#50fa7b"
+foreground = "#24273a"
+background = "#a5adcb"
 
 [colors.search.focused_match]
-
-foreground = "#44475a"
-background = "#ffb86c"
+foreground = "#24273a"
+background = "#a6da95"
 
 [colors.footer_bar]
-
-background = "#282a36"
-foreground = "#f8f8f2"
+foreground = "#24273a"
+background = "#a5adcb"
 
 [colors.hints.start]
-
-foreground = "#282a36"
-background = "#f1fa8c"
+foreground = "#24273a"
+background = "#eed49f"
 
 [colors.hints.end]
+foreground = "#24273a"
+background = "#a5adcb"
 
-foreground = "#f1fa8c"
-background = "#282a36"
+[colors.selection]
+text = "#24273a"
+background = "#f4dbd6"
 
+[colors.normal]
+black = "#494d64"
+red = "#ed8796"
+green = "#a6da95"
+yellow = "#eed49f"
+blue = "#8aadf4"
+magenta = "#f5bde6"
+cyan = "#8bd5ca"
+white = "#b8c0e0"
+
+[colors.bright]
+black = "#5b6078"
+red = "#ed8796"
+green = "#a6da95"
+yellow = "#eed49f"
+blue = "#8aadf4"
+magenta = "#f5bde6"
+cyan = "#8bd5ca"
+white = "#a5adcb"
+
+[colors.dim]
+black = "#494d64"
+red = "#ed8796"
+green = "#a6da95"
+yellow = "#eed49f"
+blue = "#8aadf4"
+magenta = "#f5bde6"
+cyan = "#8bd5ca"
+white = "#b8c0e0"
+
+[[colors.indexed_colors]]
+index = 16
+color = "#f5a97f"
+
+[[colors.indexed_colors]]
+index = 17
+color = "#f4dbd6"
