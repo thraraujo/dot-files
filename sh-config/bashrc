@@ -33,6 +33,9 @@ HISTFILE=~/.cache/bash/history
 # load starship prompt
 eval "$(starship init bash)"
 
+# Set up fzf key bindings and fuzzy completion
+eval "$(fzf --bash)"
+
 export EDITOR=vim
     
 fastfetch

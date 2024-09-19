@@ -16,3 +16,9 @@ alias nvim='vi'
 # alias pbpaste='xclip -selection clipboard -o'
 
 alias clear-cache='sudo sysctl vm.drop_caches=3'
+
+alias jupyter-run='docker run -p 8888:8888 \
+           -e JUPYTER_ENABLE_LAB=yes \
+           -e JUPYTER_TOKEN=docker \
+           --name jupyter \
+           -d jupyter/minimal-notebook:latest'
