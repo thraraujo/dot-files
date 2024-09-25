@@ -34,8 +34,10 @@ HISTFILE=~/.cache/bash/history
 eval "$(starship init bash)"
 
 # Set up fzf key bindings and fuzzy completion
-eval "$(fzf --bash)"
+# eval "$(fzf --bash)"
 
 export EDITOR=vim
     
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
 fastfetch
