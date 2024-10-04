@@ -83,7 +83,7 @@ bindsym $mod+Return exec emacsclient -a "" -c
 bindsym $mod+Shift+w exec firefox
 #assign [class="firefox"] 9
 
-bindsym $mod+w exec chromium
+bindsym $mod+w exec brave
 
 # i3-lock
 bindsym $mod+b exec i3lock -c 24251A
@@ -96,7 +96,7 @@ bindsym $mod+minus scratchpad show
 # Transparency with picom compositor
 # exec picom
 # exec_always picom -f
-exec --no-startup-id picom
+exec_always --no-startup-id picom
 
 exec --no-startup-id nitrogen --restore
 

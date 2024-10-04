@@ -21,4 +21,5 @@ alias jupyter-run='docker run -p 8888:8888 \
            -e JUPYTER_ENABLE_LAB=yes \
            -e JUPYTER_TOKEN=docker \
            --name jupyter \
-           -d jupyter/minimal-notebook:latest'
+           -d quay.io/jupyter/datascience-notebook:latest'
+
