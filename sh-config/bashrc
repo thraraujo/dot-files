@@ -24,10 +24,11 @@ SAVEHIST=10000
 HISTFILE=~/.cache/bash/history
 
 
-# Load aliases, shortcuts (and keybindings) and paths if existent.
+# Load aliases, functions, shortcuts, keybindings and paths.
 # [ -f "$HOME/.config/dot-files/sh-config/shortcutrc" ] && source "$HOME/.config/dot-files/zh-config/shortcutrc"
 [ -f "$HOME/.config/dot-files/sh-config/aliasrc" ] && source "$HOME/.config/dot-files/sh-config/aliasrc"
 [ -f "$HOME/.config/dot-files/sh-config/pathrc" ] && source "$HOME/.config/dot-files/sh-config/pathrc"
+[ -f "$HOME/.config/dot-files/sh-config/functionrc" ] && source "$HOME/.config/dot-files/sh-config/functionrc"
 
 
 # load starship prompt

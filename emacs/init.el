@@ -41,17 +41,4 @@
   "Function to run git-status command"
   (interactive)
   (shell-command "git-status"))
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(delete-selection-mode nil)
- '(package-selected-packages
-   '(vterm yasnippet which-key treemacs-nerd-icons treemacs-icons-dired treemacs-all-the-icons smooth-scrolling rainbow-delimiters pdf-tools org-bullets openwith nerd-icons-ivy-rich nerd-icons-ibuffer nerd-icons-completion magit lsp-ui lsp-ivy ivy-prescient ivy-bibtex helm-bibtex evil dracula-theme doom-modeline dashboard crux counsel-projectile company-box catppuccin-theme all-the-icons-nerd-fonts all-the-icons-ivy-rich all-the-icons-ivy all-the-icons-ibuffer all-the-icons-gnus all-the-icons-dired all-the-icons-completion)))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
+

@@ -112,7 +112,7 @@ mods = "Shift"
 history = 5000
 
 [window]
-decorations = "none"
+decorations = "Full"
 dynamic_padding = false
 opacity = 0.9
 title = "Alacritty"

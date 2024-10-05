@@ -1,0 +1,7 @@
+jupyter-run() {
+    docker run -p 8888:8888 \
+           -v jupyter-data:/home/jovyan/work \
+           -e JUPYTER_ENABLE_LAB=yes \
+           -e JUPYTER_TOKEN=docker \
+           -d my-jupyter
+}

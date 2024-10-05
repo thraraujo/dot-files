@@ -17,92 +17,84 @@
 ;==========================================================
 
 
-
 [colors]
-;background = #3B4252
-;background-alt = #2E3440
-;foreground = #D8DEE9
-;primary = #5E81AC
-;secondary = #8FBCBB
-;alert = #BF616A
-;disabled = #D08770
-
-;; main colors
-background = #263238
-foreground = #DFDFDF
-primary = #00BCD4
-red = #FF5250
-green = #43a047
-yellow = #fdd835
-
-
+background = #1E1E2E
+background-alt = #313244
+foreground = #D9E0EE
+primary = #96CDFB
+secondary = #F5C2E7
+alert = #F38BA8
+disabled = #6C7086
+red = #F38BA8
+green = #A6E3A1
+yellow = #F9E2AF
 
 [bar/mybar]
 width = 100%
-height = 20pt
-radius = 6
+height = 24pt
+radius = 8
 background = ${colors.background}
 foreground = ${colors.foreground}
 line-size = 1pt
-border-size = 2pt
-border-color = #00000000
+border-size = 1pt
+border-color = ${colors.primary}
 padding-left = 0
-padding-right = 1.5
-module-margin = 1
+padding-right = 2
+module-margin = 2
 separator = |
-separator-foreground = ${colors.disabled}
-;font-0 = FiraCodeNerdFont
-font-0 = HackNerdFont
+separator-foreground = ${colors.secondary}
+font-0 = HackNerdFont:size=10
 modules-left = xworkspaces xwindow
 modules-right = pulseaudio backlight xkeyboard memory cpu wlan battery date powermenu
 cursor-click = pointer
 cursor-scroll = ns-resize
 enable-ipc = true
-bottom  =true
+bottom = true
 dpi = 96
-
-
 
 [bar/bar2]
 monitor = HDMI-1
 width = 100%
-height = 20pt
-radius = 6
+height = 24pt
+radius = 8
 background = ${colors.background}
 foreground = ${colors.foreground}
 line-size = 1pt
-border-size = 2pt
-border-color = #00000000
+border-size = 1pt
+border-color = ${colors.primary}
 padding-left = 0
-padding-right = 1
-module-margin = 1
+padding-right = 2
+module-margin = 2
 separator = |
-separator-foreground = ${colors.disabled}
-;font-0 = FiraCodeNerdFont
-font-0 = HackNerdFont
+separator-foreground = ${colors.secondary}
+font-0 = "JetBrainsMono Nerd Font:size=12;2"
 modules-left = xworkspaces xwindow
 modules-right = pulseaudio xkeyboard memory cpu wlan battery date powermenu
 cursor-click = pointer
 cursor-scroll = ns-resize
 enable-ipc = true
-bottom  =true
-
+bottom = true
+dpi = 96
 
 
 [module/xworkspaces]
 type = internal/xworkspaces
 label-active = %name%
-label-active-background = ${colors.background-alt}
-label-active-underline= ${colors.primary}
-label-active-padding = 1
+label-active-padding = 2
+label-active-underline = ${colors.alert}
+label-active-underline-padding = 3
+
 label-occupied = %name%
-label-occupied-padding = 1
+label-occupied-padding = 2
+label-occupied-foreground = ${colors.primary}  ; Use primary color for occupied
+
 label-urgent = %name%
 label-urgent-background = ${colors.alert}
-label-urgent-padding = 1
+label-urgent-padding = 2
+
 label-empty = %name%
 label-empty-foreground = ${colors.disabled}
-label-empty-padding = 1
+label-empty-padding = 2
 
 
 
@@ -115,8 +107,7 @@ label = %title:0:60:...%
 [module/pulseaudio]
 type = internal/pulseaudio
 format-volume-prefix = "VOL "
-format-volume-prefix-foreground = ${colors.primary}
-format-volume = <label-volume>
+format-volume-prefix-foreground = ${colors.secondary}  ; Use secondary color for volume label
 label-volume = %percentage%%
 label-muted = muted
 label-muted-foreground = ${colors.disabled}
@@ -127,31 +118,37 @@ label-muted-foreground = ${colors.disabled}
 type = internal/backlight
 card = intel_backlight
 use-actual-brightness = true
-enable-scroll = false
+enable-scroll = true
+; Here I need to see if I'm allowed to do it
+; sudo usermod -aG video $USER
+
 ; Available tags:
 ;   <label> (default)
 ;   <ramp>
 ;   <bar>
-format-prefix = "BRIG"
+;format-prefix = "BRIG"
+format-prefix = "☀ "
 format-prefix-foreground = ${colors.primary}
-format = <ramp> <label> 
+
+format = <ramp> <label>
 ; Available tokens:
 ; Only applies if <ramp> is used
-ramp-0 = 🌕
-ramp-1 = 🌔
-ramp-2 = 🌓
-ramp-3 = 🌒
-ramp-4 = 🌑
+
+; Define ramps for different brightness levels explicitly
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
+ramp-3 = 
+ramp-4 = 
 
 ;   %percentage% (default)
 label = %percentage%%
 
 ; Only applies if <bar> is used
-bar-width = 10
-bar-indicator = |
-bar-fill = ─
-bar-empty = ─
-
+;bar-width = 10
+;bar-indicator = |
+;bar-fill = ─
+;bar-empty = ─
 
 
 [module/xkeyboard]
@@ -223,17 +220,19 @@ format-discharging = <ramp-capacity>  <label-discharging>
 ;   %percentage_raw%
 ;   %time%
 ;   %consumption% (shows current charge rate in watts)
-label-charging = Charging %percentage_raw%%
+;label-charging = Charging %percentage_raw%%
+label-charging = %{F#A6E3A1}Charging %percentage_raw%%%{F-}
 ; Available tokens:
 ;   %percentage% (default) - is set to 100 if full-at is reached
 ;   %percentage_raw%
 ;   %time%
 ;   %consumption% (shows current discharge rate in watts)
-label-discharging = Discharging %percentage_raw%%
+;label-discharging = Discharging %percentage_raw%%
+label-discharging = %{F#F38BA8}Discharging %percentage_raw%%%{F-}
 ; Available tokens:
 ;   %percentage% (default) - is set to 100 if full-at is reached
 ;   %percentage_raw%
-label-full = Fully charged
+label-full =   %percentage_raw%%  
 ; Available tokens:
 ;   %percentage% (default) - is set to 100 if full-at is reached
 ;   %percentage_raw%
