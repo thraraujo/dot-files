@@ -20,12 +20,12 @@
 #############
 
 # Hide borders
-default_border pixel 1
-default_floating_border pixel 1
+default_border pixel 2
+default_floating_border pixel 2
 
 # Set inner/outer gaps
-gaps inner 2px
-gaps outer 3px
+gaps inner 4px
+gaps outer 1px
 
 ###########
 ### END ###

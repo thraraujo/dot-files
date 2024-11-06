@@ -72,6 +72,7 @@ for a couple of days.
 
 ;; Path from Shell
 ; Installable packages are available via MELPA: do M-x package-install RET exec-path-from-shell RET.
+(require 'exec-path-from-shell)
 (when (daemonp)
 (exec-path-from-shell-initialize))
 
@@ -379,7 +380,7 @@ for a couple of days.
       :bind-keymap
       ("C-c p" . projectile-command-map)
       :init
-      (setq projectile-project-search-path '("~/Sync/projects/work" "~/Sync/projects/wiki" "~/Sync/projects/aulas"))
+      (setq projectile-project-search-path '("~/Sync/projects/work" "~/Sync/projects/wiki"))
       (setq projectile-switch-project-action #'projectile-dired))
 
     (use-package counsel-projectile
