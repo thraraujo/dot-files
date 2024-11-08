@@ -5,6 +5,11 @@
 
 ;; SOME CUSTOM FUNCTIONS
 
+;(defun th-git-status ()
+;  "Function to run git-status command"
+;  (interactive)
+;  (shell-command "git-status"))
+
 (defun th-eval-init ()
   "Function to evaluate the init file."
   (interactive)
@@ -36,9 +41,4 @@
   "Function to open my dot files"
   (interactive)
   (find-file "~/.config/scripts"))
-
-(defun th-git-status ()
-  "Function to run git-status command"
-  (interactive)
-  (shell-command "git-status"))
 
