@@ -38,7 +38,5 @@ eval "$(starship init bash)"
 # eval "$(fzf --bash)"
 
 export EDITOR=vim
-    
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
-fastfetch
+# fastfetch
