@@ -39,4 +39,4 @@ eval "$(starship init bash)"
 
 export EDITOR=vim
 
-# fastfetch
+fastfetch
