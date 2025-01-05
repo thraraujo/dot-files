@@ -2,3 +2,5 @@ setxkbmap -option ctrl:nocaps
 setxkbmap -option compose:menu
 setxkbmap br
 xset r rate 200 30
+
+# if the file .bash_profile does not exist, ~/.bash_login and ~/.profile are checked in that order. 
