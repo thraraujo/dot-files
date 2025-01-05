@@ -83,7 +83,7 @@ bindsym $mod+Return exec emacsclient -a "" -c
 bindsym $mod+Shift+w exec firefox
 #assign [class="firefox"] 9
 
-bindsym $mod+w exec brave
+bindsym $mod+w exec chromium
 
 # i3-lock
 bindsym $mod+b exec i3lock -c 24251A
