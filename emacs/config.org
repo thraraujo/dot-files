@@ -581,11 +581,13 @@ Yasnippet and LSP are not compatible.
 
 * Org-Roam
 
+Remember to install org-roam-ui
+
 #+begin_src emacs-lisp
 (use-package org-roam
     :ensure t
     :custom
-    (org-roam-directory (file-truename "/home/thiago/Sync/work/wiki/RoamNotes"))
+    (org-roam-directory (file-truename "/home/thiago/Sync/wiki/RoamNotes"))
     :bind (("C-c n l" . org-roam-buffer-toggle)
             ("C-c n f" . org-roam-node-find)
             ("C-c n g" . org-roam-graph)
