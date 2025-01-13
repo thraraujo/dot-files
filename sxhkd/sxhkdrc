@@ -22,6 +22,10 @@ super + Escape
 super + {_,shift +}w
 	{chromium, firefox}
 
+# lockscreen with i3lock
+super + alt + b
+    i3lock -c 24251A
+
 ##########################
 # bspwm hotkeys
 ##########################
