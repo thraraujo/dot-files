@@ -511,21 +511,21 @@ Yasnippet and LSP are not compatible.
 (use-package helm-bibtex)
 (use-package ivy-bibtex)
 (setq bibtex-completion-bibliography
-      '("~/Sync/projects/wiki/research/bib-database.bib"))
+      '("~/Sync/wiki/database/bib-database.bib"))
 #+end_src
 
 * USER DEFINITIONS
 
 #+begin_src emacs-lisp
 
-  ;;bookmarks
-  (setq bookmark-default-file "~/.emacs.d/bookmarks")
+;;bookmark
+(setq bookmark-default-file "~/.emacs.d/bookmarks")
 
-  ;; default pdf viewer
-  (use-package openwith)
-  (setq openwith-associations '(("\\.djvu\\'" "zathura" (file))))
-  (setq openwith-associations '(("\\.pdf\\'" "zathura" (file))))
-  (openwith-mode t)
+;; default pdf viewer
+(use-package openwith)
+(setq openwith-associations '(("\\.djvu\\'" "zathura" (file))))
+(setq openwith-associations '(("\\.pdf\\'" "zathura" (file))))
+(openwith-mode t)
 
 (unless (package-installed-p 'crux)
   (package-refresh-contents)
