@@ -11,10 +11,14 @@
 %%%%%%%%%%%%%%%%%%%%%%%% 
 \usepackage{parskip}
 \usepackage{tikz} % Drawing package
-%\usepackage[backend=biber, style=alphabetic]{biblatex}
 \usepackage[backend=biber, style=alphabetic, sorting=ydnt]{biblatex}
+%\usepackage[backend=biber, style=alphabetic]{biblatex}
 \usepackage{listings}
 \usepackage{ytableau}
+
+
+\usepackage{mdframed} % Better than the framed package
+
 
 \usetikzlibrary{intersections,decorations.text} % this is to make the cover
 \usetikzlibrary{matrix, arrows.meta}            % this is to improve diagrams
@@ -24,8 +28,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%
 % METADATA
 %%%%%%%%%%%%%%%%%%%%%%%% 
-
-%\usepackage{framed} 
 
 % See options in the official manual
 \hypersetup{ 
@@ -39,7 +41,6 @@
     urlcolor =myPurple, % color for linked URL
     linktocpage=true    % link page to table of contents
 }
-
 
 % Options for listings package I saw the sniipet below here: 
 % https://stackoverflow.com/questions/3175105/inserting-code-in-this-latex-document-with-indentation
@@ -75,9 +76,6 @@
 \definecolor{c3}{RGB}{236, 239, 244} % myLightGray
 \definecolor{c4}{RGB}{59, 66, 82}
 \definecolor{c5}{RGB}{76, 86, 106}
-
-% This color is a framed requirement
-\definecolor{shadecolor}{RGB}{236, 239, 244}
 
 %%%%%%%%%%%%%%%%%%%%%%%%
 % THEOREM
