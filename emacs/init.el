@@ -42,3 +42,4 @@
   (interactive)
   (find-file "~/.config/scripts"))
 
+(put 'dired-find-alternate-file 'disabled nil)
