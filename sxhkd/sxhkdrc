@@ -20,7 +20,7 @@ super + Escape
 
 # Firefox
 super + {_,shift +}w
-	{chromium, firefox}
+	{qutebrowser, firefox}
 
 # lockscreen with i3lock
 super + alt + b
