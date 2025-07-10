@@ -27,12 +27,14 @@ y = 1
 [[keyboard.bindings]]
 action = "Paste"
 key = "v"
-mods = "Control|Shift"
+mods = "Control"
+#mods = "Control|Shift"
 
 [[keyboard.bindings]]
 action = "Copy"
 key = "c"
-mods = "Control|Shift"
+mods = "Control"
+# mods = "Control|Shift"
 
 [[keyboard.bindings]]
 action = "PasteSelection"
