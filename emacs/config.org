@@ -547,7 +547,7 @@ Yasnippet and LSP are not compatible.
   (setq dashboard-banner-logo-title "Emacs Dashboard")
   ;; Set the banner
   ;; (setq dashboard-startup-banner 'logo)
-  (setq dashboard-startup-banner "/home/thiago/Sync/images/bomber.png")
+  (setq dashboard-startup-banner "/home/thiago/Files/2025-work/images/bomber.png")
   ;; Value can be:
   ;;  - 'official which displays the official emacs logo.
   ;;  - 'logo which displays an alternative emacs logo.
