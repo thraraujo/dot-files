@@ -587,7 +587,7 @@ Remember to install org-roam-ui
 (use-package org-roam
     :ensure t
     :custom
-    (org-roam-directory (file-truename "/home/thiago/Sync/wiki/RoamNotes"))
+    (org-roam-directory (file-truename "/home/thiago/Files/2025-work/wiki/RoamNotes"))
     :bind (("C-c n l" . org-roam-buffer-toggle)
             ("C-c n f" . org-roam-node-find)
             ("C-c n g" . org-roam-graph)
