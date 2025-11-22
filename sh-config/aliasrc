@@ -13,8 +13,8 @@ alias ...='cd ../..'
 alias ls='ls --color=auto'
 alias ll='ls -la --color=auto'
 
-alias vim='nvim'
-alias vi='nvim'
+# alias vim='nvim'
+# alias vi='nvim'
 
 alias clear-cache='sudo sysctl vm.drop_caches=3'
 
