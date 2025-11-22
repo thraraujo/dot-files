@@ -7,11 +7,11 @@ super + Return
 	emacsclient -a "" -c
 
 # terminal emulator
-super + alt + Return
+super + shift + Return
 	alacritty
 
 # program launcher: Rofi
-super + @space
+super + r
 	rofi -show drun
 
 # make sxhkd reload its configuration files:
@@ -20,7 +20,7 @@ super + Escape
 
 # Firefox
 super + {_,shift +}w
-	{qutebrowser, firefox}
+	{firefox, brave-browser}
 
 # lockscreen with i3lock
 super + alt + b

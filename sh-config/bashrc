@@ -15,13 +15,13 @@
 # ridden in every subshell.
 
 # Enable colors and change prompt:
-# PS1="%B%{$fg[cyan]%}[%{$fg[blue]%}%n%{$fg[magenta]%}@%{$fg[blue]%}%M
-# %{$fg[magenta]%}%~%{$fg[cyan]%}]%{$reset_color%}%b~%b "
+# PS1="%B%{$fg[cyan]%}[%{$fg[blue]%}%n%{$fg[magenta]%}@%{$fg[blue]%}%M%{$fg[magenta]%}%~%{$fg[cyan]%}]%{$reset_color%}%b~%b "
 
 # History in cache directory:
 HISTSIZE=10000
 SAVEHIST=10000
-HISTFILE=~/.cache/bash/history
+# HISTFILE=~/.cache/bash/history
+HISTFILE=~/.bash_history
 
 
 # Load aliases, functions, shortcuts, keybindings and paths.
@@ -39,4 +39,4 @@ eval "$(starship init bash)"
 
 export EDITOR=vim
 
-fastfetch
+# fastfetch
