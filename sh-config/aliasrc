@@ -21,3 +21,6 @@ alias clear-cache='sudo sysctl vm.drop_caches=3'
 alias jupyterlab="docker run -p 8888:8888 -v /home/thiago/Sync/projects/physics-math:/home/jovyan/work my-jupyter"
 
 alias dugrep='du -ah ./ | grep -iw'
+
+alias files='mount /dev/nvme0n1p4 /mnt'
+# test partition: sudo fdisk -l
