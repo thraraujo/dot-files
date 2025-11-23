@@ -1,5 +1,6 @@
 setxkbmap -option ctrl:nocaps 
-setxkbmap -option compose:rctrl
+setxkbmap -option compose:menu
+# setxkbmap -option compose:rctrl
 setxkbmap us
 xset r rate 200 30
 

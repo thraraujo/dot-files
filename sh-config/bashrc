@@ -35,6 +35,7 @@ HISTFILE=~/.bash_history
 eval "$(starship init bash)"
 
 # Set up fzf key bindings and fuzzy completion
+# --bash, --zsh, and --fish options are only available in fzf 0.48.0 or later. 
 # eval "$(fzf --bash)"
 
 export EDITOR=vim
