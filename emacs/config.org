@@ -547,7 +547,7 @@ Yasnippet and LSP are not compatible.
   (setq dashboard-banner-logo-title "Emacs Dashboard")
   ;; Set the banner
   ;; (setq dashboard-startup-banner 'logo)
-  (setq dashboard-startup-banner "/home/thiago/Documents/work/images/bomber.png")
+  (setq dashboard-startup-banner "/home/thiago/Documents/images/bomber.png")
   ;; Value can be:
   ;;  - 'official which displays the official emacs logo.
   ;;  - 'logo which displays an alternative emacs logo.
@@ -587,7 +587,7 @@ Remember to install org-roam-ui
 (use-package org-roam
     :ensure t
     :custom
-    (org-roam-directory (file-truename "/home/thiago/Documents/work/wiki/RoamNotes"))
+    (org-roam-directory (file-truename "/home/thiago/Documents/wiki/RoamNotes"))
     :bind (("C-c n l" . org-roam-buffer-toggle)
             ("C-c n f" . org-roam-node-find)
             ("C-c n g" . org-roam-graph)
