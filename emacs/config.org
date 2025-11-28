@@ -281,38 +281,38 @@ for a couple of days.
 ** Other properties
 
 #+begin_src emacs-lisp
-(setq inhibit-startup-message t)                   ; don't show the splash screen
-(setq visible-bell t)		                   ; flash when the bell rings
+  (setq inhibit-startup-message t)                   ; don't show the splash screen
+  (setq visible-bell t)		                         ; flash when the bell rings
 
-(pixel-scroll-precision-mode 1)
-(use-package smooth-scrolling)                     ; For a better scrolling experience
-(smooth-scrolling-mode 1)
+  (pixel-scroll-precision-mode 1)
+  (use-package smooth-scrolling)                     ; For a better scrolling experience
+  (smooth-scrolling-mode 1)
 
-(setq scroll-conservatively 10000)
-(setq scroll-margin 8)
+  (setq scroll-conservatively 10000)
+  (setq scroll-margin 8)
 
-(tool-bar-mode -1)                                 ; turn off the toolbar
-(menu-bar-mode -1)                                 ; turn off the menubar
-(scroll-bar-mode -1)                               ; turn off scrollbar
-(blink-cursor-mode -1)                             ; turn off blink cursor
-(hl-line-mode 1)                                   ; highlight line
-(setq fringe-mode 20)
+  (tool-bar-mode -1)                                 ; turn off the toolbar
+  (menu-bar-mode -1)                                 ; turn off the menubar
+  (scroll-bar-mode -1)                               ; turn off scrollbar
+  (blink-cursor-mode -1)                             ; turn off blink cursor
+  (hl-line-mode 1)                                   ; highlight line
+  (setq fringe-mode 20)
 
-(column-number-mode)
-(global-display-line-numbers-mode t)               ; line numberting
-(setq display-line-numbers-type 'relative)         ; relative numbers
+  (column-number-mode)
+  (global-display-line-numbers-mode t)               ; line numberting
+  (setq display-line-numbers-type 'relative)         ; relative numbers
 
-(use-package rainbow-delimiters                    ; make delimiters colorful
-    :hook (prog-mode . rainbow-delimiters-mode))
+  (use-package rainbow-delimiters                    ; make delimiters colorful
+      :hook (prog-mode . rainbow-delimiters-mode))
 
-(dolist (mode '(term-mode-hook                     ; disable line numbers for some modes
-		vterm-mode-hook
-		shell-mode-hook
-		treemacs-mode-hook
-		dired-mode-hook
-		ibuffer-mode-hook
-		eshell-mode-hook))
-(add-hook mode (lambda () (display-line-numbers-mode 0))))
+  (dolist (mode '(term-mode-hook                     ; disable line numbers for some modes
+          vterm-mode-hook
+          shell-mode-hook
+          treemacs-mode-hook
+          dired-mode-hook
+          ibuffer-mode-hook
+          eshell-mode-hook))
+  (add-hook mode (lambda () (display-line-numbers-mode 0))))
 #+end_src
 
 
@@ -544,7 +544,8 @@ Yasnippet and LSP are not compatible.
   (setq initial-buffer-choice (lambda () (get-buffer-create dashboard-buffer-name)))
 
   ;; Set the title
-  (setq dashboard-banner-logo-title "Emacs Dashboard")
+  ;(setq dashboard-banner-logo-title "Emacs Dashboard")
+  (setq dashboard-banner-logo-title "Thiago's Dashboard")
   ;; Set the banner
   ;; (setq dashboard-startup-banner 'logo)
   (setq dashboard-startup-banner "/home/thiago/Documents/images/bomber.png")
@@ -562,7 +563,7 @@ Yasnippet and LSP are not compatible.
   ;;    supported values are: string (filepath), 'official, 'logo and integers.
 
   ;; Content is not centered by default. To center, set
-  ;(setq dashboard-center-content t)
+  (setq dashboard-center-content t)
   ;; vertically center content
   (setq dashboard-vertically-center-content t)
 
@@ -573,10 +574,10 @@ Yasnippet and LSP are not compatible.
   (setq dashboard-projects-backend 'projectile)
 
   (setq dashboard-items '((recents   . 5)
-                          (bookmarks . 10)
-                          (projects  . 10)
-                          ;(registers . 5)
-  ))
+                          (bookmarks . 5)
+                          (projects  . 5)
+                          (agenda    . 5)
+                          (registers . 5)))
 #+end_src
 
 * Org-Roam
