@@ -460,35 +460,38 @@ for a couple of days.
 ** LSP
 
 #+begin_src emacs-lisp
-;; LSP
-(use-package lsp-mode)
+  ;; LSP
+  (use-package lsp-mode)
 
-(add-hook 'latex-mode-hook #'lsp)
-(add-hook 'python-mode-hook #'lsp)
-(add-hook 'markdown-mode-hook #'lsp)
+  (add-hook 'latex-mode-hook #'lsp)
+  (add-hook 'python-mode-hook #'lsp)
+  (add-hook 'markdown-mode-hook #'lsp)
+  (add-hook 'bash-mode-hook #'lsp)
+  (add-hook 'sh-mode-hook #'lsp)
 
-(use-package lsp-ivy)
+  (use-package lsp-ivy)
 
-(use-package company
-  :after lsp-mode
-  :hook (prog-mode . company-mode)
-  :bind (:map company-active-map
-         ("<tab>" . company-complete-selection))
-        (:map lsp-mode-map
-         ("<tab>" . company-indent-or-complete-common))
-  :custom
-  (company-minimum-prefix-length 1)
-  (company-idle-delay 0.0))
+  (use-package company
+    :after lsp-mode
+    :hook (prog-mode . company-mode)
+    :bind (:map company-active-map
+           ("<tab>" . company-complete-selection))
+          (:map lsp-mode-map
+           ("<tab>" . company-indent-or-complete-common))
+    :custom
+    (company-minimum-prefix-length 1)
+    (company-idle-delay 0.0))
 
-(use-package company-box
-  :hook (company-mode . company-box-mode))
+  (use-package company-box
+    :hook (company-mode . company-box-mode))
 
-(use-package lsp-ui
-  :hook (lsp-mode . lsp-ui-mode))
+  (use-package lsp-ui
+    :hook (lsp-mode . lsp-ui-mode))
 
-;; Languages
-(setq lsp-tex-server 'texlab)
-;(setq lsp-tex-server-command "/home/thiago/.cargo/bin/texlab")
+  ;; Languages
+  (setq lsp-tex-server 'texlab)
+  (setq lsp-sh-server 'bash-ls)
+  ;(setq lsp-tex-server-command "/home/thiago/.cargo/bin/texlab")
 #+end_src
 
 ** Snippets

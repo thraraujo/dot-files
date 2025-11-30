@@ -40,4 +40,4 @@ eval "$(starship init bash)"
 
 export EDITOR=vim
 
-screenfetch
+# screenfetch
