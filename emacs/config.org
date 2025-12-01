@@ -439,22 +439,33 @@ for a couple of days.
 
 #+begin_src emacs-lisp
   ;; Treesitter
-  (setq treesit-language-source-alist
-     '((bash "https://github.com/tree-sitter/tree-sitter-bash")
-       (c "https://github.com/tree-sitter/tree-sitter-c.git")
-       (python "https://github.com/tree-sitter/tree-sitter-python")
-       (elisp "https://github.com/Wilfred/tree-sitter-elisp")
-       (latex "https://github.com/latex-lsp/tree-sitter-latex")
-       (tex "https://github.com/latex-lsp/tree-sitter-latex")
-      ))
+(setq treesit-language-source-alist
+   '((bash "https://github.com/tree-sitter/tree-sitter-bash")
+     (c "https://github.com/tree-sitter/tree-sitter-c.git")
+     (cmake "https://github.com/uyha/tree-sitter-cmake")
+     (css "https://github.com/tree-sitter/tree-sitter-css")
+     (elisp "https://github.com/Wilfred/tree-sitter-elisp")
+     (go "https://github.com/tree-sitter/tree-sitter-go")
+     (html "https://github.com/tree-sitter/tree-sitter-html")
+     (javascript "https://github.com/tree-sitter/tree-sitter-javascript" "master" "src")
+     (json "https://github.com/tree-sitter/tree-sitter-json")
+     (latex "https://github.com/latex-lsp/tree-sitter-latex")
+     (tex "https://github.com/latex-lsp/tree-sitter-latex")
+     (make "https://github.com/alemuller/tree-sitter-make")
+     (markdown "https://github.com/ikatyang/tree-sitter-markdown")
+     (python "https://github.com/tree-sitter/tree-sitter-python")
+     (toml "https://github.com/tree-sitter/tree-sitter-toml")
+     (tsx "https://github.com/tree-sitter/tree-sitter-typescript" "master" "tsx/src")
+     (typescript "https://github.com/tree-sitter/tree-sitter-typescript" "master" "typescript/src")
+     (yaml "https://github.com/ikatyang/tree-sitter-yaml")))
 
-  (setq major-mode-remap-alist
-   '((python-mode . python-ts-mode)
-     (sh-mode . bash-ts-mode)
-     (c-mode . c-ts-mode)
+  ;;(setq major-mode-remap-alist
+   ;;'((python-mode . python-ts-mode)
+     ;;(sh-mode . bash-ts-mode)
+     ;;(c-mode . c-ts-mode)
      ;;(latex-mode . latex-ts-mode) ; This does not work 
      ;;(elisp-mode . elisp-ts-mode)
-      ))
+     ;;))
 #+end_src
 
 ** LSP
@@ -490,7 +501,7 @@ for a couple of days.
 
   ;; Languages
   (setq lsp-tex-server 'texlab)
-  (setq lsp-sh-server 'bash-ls)
+  (setq lsp-bash-server 'bash-ls)
   ;(setq lsp-tex-server-command "/home/thiago/.cargo/bin/texlab")
 #+end_src
 
@@ -551,7 +562,7 @@ Yasnippet and LSP are not compatible.
   (setq dashboard-banner-logo-title "Thiago's Dashboard")
   ;; Set the banner
   ;; (setq dashboard-startup-banner 'logo)
-  (setq dashboard-startup-banner "/home/thiago/Documents/images/bomber.png")
+  (setq dashboard-startup-banner "/home/thiago/Documents/images/gnu-linux.png")
   ;; Value can be:
   ;;  - 'official which displays the official emacs logo.
   ;;  - 'logo which displays an alternative emacs logo.

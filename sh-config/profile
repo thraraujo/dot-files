@@ -1,7 +1,13 @@
 setxkbmap -option ctrl:nocaps 
-setxkbmap -option compose:menu
-# setxkbmap -option compose:rctrl
 setxkbmap us
 xset r rate 200 30
+
+# Which keyboard should I use? This is not a good script, I need to think about something else,
+# perhaps add another variable and see if I am home or at work
+if [[ $(nmcli device status | grep -i 'wired connection') ]]; then
+setxkbmap -option compose:rctrl
+else
+setxkbmap -option compose:menu
+fi
 
 # if the file .bash_profile does not exist, ~/.bash_login and ~/.profile are checked in that order. 
