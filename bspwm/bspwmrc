@@ -2,8 +2,8 @@
 
 pgrep -x sxhkd > /dev/null || sxhkd &
 
-bspc monitor HDMI-1 -d VI VII VIII IX X
-bspc monitor eDP-1 -d 1 2 3 4 5
+bspc monitor HDMI-1 -d III IV V VI VII VIII IX X
+bspc monitor eDP-1 -d 1 2
 
 # if [[ $(xrandr -q | grep 'HDMI-1 connected') ]]; then
 # xrandr --output eDP-1 --primary --mode 1920x1200 --rotate normal --output HDMI-1 --mode 3840x2160 --rotate normal --left-of eDP-1
