@@ -525,7 +525,7 @@ Yasnippet and LSP are not compatible.
 (use-package helm-bibtex)
 (use-package ivy-bibtex)
 (setq bibtex-completion-bibliography
-      '("~/Sync/wiki/database/bib-database.bib"))
+      '("~/Documents/library/integrability-database.bib"))
 #+end_src
 
 * USER DEFINITIONS
@@ -598,22 +598,26 @@ Yasnippet and LSP are not compatible.
 
 Remember to install org-roam-ui
 
+I had some problems with sqlite, try to fix it later... or don't
+In any case, I am gonna comment all these things and try to build my work
+around some simpler tools, e.g. plain org mode. 
+
 #+begin_src emacs-lisp
-(use-package org-roam
-    :ensure t
-    :custom
-    (org-roam-directory (file-truename "/home/thiago/Documents/wiki/RoamNotes"))
-    :bind (("C-c n l" . org-roam-buffer-toggle)
-            ("C-c n f" . org-roam-node-find)
-            ("C-c n g" . org-roam-graph)
-            ("C-c n i" . org-roam-node-insert)
-            ("C-c n c" . org-roam-capture)
-            ;; Dailies
-            ("C-c n j" . org-roam-dailies-capture-today))
-    :config
-    ;; If you're using a vertical completion framework, you might want a more informative completion interface
-    (setq org-roam-node-display-template (concat "${title:*} " (propertize "${tags:10}" 'face 'org-tag)))
-    (org-roam-db-autosync-mode)
-    ;; If using org-roam-protocol
-    (require 'org-roam-protocol))
+;; (use-package org-roam
+;;     :ensure t
+;;     :custom
+;;     (org-roam-directory (file-truename "/home/thiago/Documents/wiki/RoamNotes"))
+;;     :bind (("C-c n l" . org-roam-buffer-toggle)
+;;             ("C-c n f" . org-roam-node-find)
+;;             ("C-c n g" . org-roam-graph)
+;;             ("C-c n i" . org-roam-node-insert)
+;;             ("C-c n c" . org-roam-capture)
+;;             ;; Dailies
+;;             ("C-c n j" . org-roam-dailies-capture-today))
+;;     :config
+;;     ;; If you're using a vertical completion framework, you might want a more informative completion interface
+;;     (setq org-roam-node-display-template (concat "${title:*} " (propertize "${tags:10}" 'face 'org-tag)))
+;;     (org-roam-db-autosync-mode)
+;;     ;; If using org-roam-protocol
+;;     (require 'org-roam-protocol))
 #+end_src
