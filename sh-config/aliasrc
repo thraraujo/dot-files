@@ -24,3 +24,5 @@ alias dugrep='du -ah ./ | grep -iw'
 
 alias files='mount /dev/nvme0n1p4 /mnt'
 # test partition: sudo fdisk -l
+
+alias cal='ncal -b'
