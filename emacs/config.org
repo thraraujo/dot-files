@@ -390,7 +390,7 @@ for a couple of days.
       :bind-keymap
       ("C-c p" . projectile-command-map)
       :init
-      (setq projectile-project-search-path '("~/Sync/projects/work" "~/Sync/projects/wiki"))
+      (setq projectile-project-search-path '("~/Work-repos/papers" "~/Work-repos/wiki"))
       (setq projectile-switch-project-action #'projectile-dired))
 
     (use-package counsel-projectile
@@ -525,7 +525,7 @@ Yasnippet and LSP are not compatible.
 (use-package helm-bibtex)
 (use-package ivy-bibtex)
 (setq bibtex-completion-bibliography
-      '("~/Documents/library/integrability-database.bib"))
+      '("~/Books/integrability-database.bib"))
 #+end_src
 
 * USER DEFINITIONS
@@ -562,7 +562,7 @@ Yasnippet and LSP are not compatible.
   (setq dashboard-banner-logo-title "Thiago's Dashboard")
   ;; Set the banner
   ;; (setq dashboard-startup-banner 'logo)
-  (setq dashboard-startup-banner "/home/thiago/Documents/images/gnu-linux.png")
+  (setq dashboard-startup-banner "/home/thiago/Pictures/gnu-linux.png")
   ;; Value can be:
   ;;  - 'official which displays the official emacs logo.
   ;;  - 'logo which displays an alternative emacs logo.
