@@ -114,8 +114,8 @@ for a couple of days.
     ;; vterm
     ; here I need to install a lot of system packages
     (use-package vterm
-        :ensure t
-        :ensure-system-package libtool-bin)
+        :ensure t)
+    ;;    :ensure-system-package libtool-bin)
 #+end_src
 
 * AUTOCOMPLETION AND FONTS
