@@ -18,9 +18,11 @@ super + space
 super + Escape
 	pkill -USR1 -x sxhkd
 
-# Firefox
+# Browser
+# super + {_,shift +}w
+# 	{firefox, brave-browser}
 super + {_,shift +}w
-	{brave-browser, firefox}
+    firefox
 
 # lockscreen with i3lock
 super + alt + b
