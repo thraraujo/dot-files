@@ -19,10 +19,8 @@ super + Escape
 	pkill -USR1 -x sxhkd
 
 # Browser
-# super + {_,shift +}w
-# 	{firefox, brave-browser}
 super + {_,shift +}w
-    firefox
+    {vivaldi.vivaldi-stable, firefox}
 
 # lockscreen with i3lock
 super + alt + b
