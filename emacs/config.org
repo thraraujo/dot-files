@@ -503,6 +503,13 @@ for a couple of days.
   ;; Languages
   (setq lsp-tex-server 'texlab)
   (setq lsp-bash-server 'bash-ls)
+  (use-package lsp-pyright
+  :ensure t
+  :custom (lsp-pyright-langserver-command "pyright") ;; or basedpyright
+  :hook (python-mode . (lambda ()
+                          (require 'lsp-pyright)
+                          (lsp))))  ; or lsp-deferred
+
   ;(setq lsp-tex-server-command "/home/thiago/.cargo/bin/texlab")
 #+end_src
 

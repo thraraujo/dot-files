@@ -26,3 +26,5 @@ alias files='mount /dev/nvme0n1p4 /mnt'
 # test partition: sudo fdisk -l
 
 alias cal='ncal -b'
+
+alias comp='gpg -c --no-symkey-cache --s2k-mode 3 --s2k-digest-algo SHA512 --s2k-count 65011712'
