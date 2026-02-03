@@ -20,7 +20,7 @@ super + Escape
 
 # Browser
 super + {_,shift +}w
-    {vivaldi.vivaldi-stable, firefox}
+    {chromium, firefox}
 
 # lockscreen with i3lock
 super + alt + b
