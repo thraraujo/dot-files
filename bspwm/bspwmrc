@@ -2,6 +2,7 @@
 
 pgrep -x sxhkd > /dev/null || sxhkd &
 
+# The VGA-1 monitor means that I am using my work computer
 if xrandr -q | grep -q '^VGA-1 connected'; then
     xrandr --output VGA-1 --primary --mode 1366x768 --rotate normal --output HDMI-1 --mode 1920x1080 --rotate normal --left-of VGA-1
     bspc monitor HDMI-1 -d 1 2 3 4 5 6 7 8 9
