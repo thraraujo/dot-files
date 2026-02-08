@@ -1,0 +1,8 @@
+* Web Scraping para o PCI Concursos
+
+Esse é um script para encontrar os melhores concursos na minha área.
+Foi bastante útil enquanto ainda estava tentando achar uma posição
+permanente. Com algumas modificações, é possível usar esse script
+para outras funcionalidades.
+
+Também adicionei um *Cron Job* para rodar esse script ao longo do dia. 

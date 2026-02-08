@@ -1,0 +1,84 @@
+\documentclass[12pt, landscape]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[brazilian]{babel}
+\usepackage{geometry}
+\geometry{a4paper, left=2.0cm, right=2.5cm, top=1.5cm, bottom=1.5cm}
+\usepackage{graphicx}
+\usepackage{setspace}
+\usepackage{xcolor}
+\usepackage{charter}
+
+\begin{document}
+\pagestyle{empty}
+
+% Moldura
+\setlength{\unitlength}{1mm}
+\begin{picture}(0,0)
+    \put(-5,-180){\framebox(255,185){}}
+\end{picture}
+
+\begin{center}
+    \vspace{0.5cm}
+    %\begin{minipage}{0.7\textwidth}
+        \begin{center}
+            \textsc{\Large Universidade Federal Fluminense}\\[0.2cm]
+            \textsc{\large Instituto de Ciências Exatas --- ICEx}\\[0.1cm]
+            \textsc{\large Departamento de Física --- VFI}
+        \end{center}
+    %\end{minipage}
+
+    \vspace{1.5cm}
+    {\huge \textbf{CERTIFICADO}}
+    \vspace{1.2cm}
+
+    % O comando \sloppy evita que o texto vaze a margem direita
+        \begin{minipage}{0.9\textwidth}
+                \begin{sloppypar}
+                  \setstretch{1.5} \centering {\large Certificamos que
+                    em {DAY}, às 16h15, {TREATMENT} \textbf{{SPEAKER}}
+                    participou do Ciclo de Seminários do Departamento
+                    de Física da Universidade Federal Fluminense
+                    (UFF), no campus de Volta Redonda, ministrando a
+                    palestra:\\[0.6cm]
+
+                {\Large \textit{"{TITLE}"}}\\[0.6cm]
+
+                Este ciclo de seminários tem como objetivo o
+                fortalecimento da formação acadêmica do nosso
+                instituto, integrando estudantes, docentes e
+                pesquisadores em torno de temas contemporâneos da
+                Física.}
+
+                \end{sloppypar}
+            \end{minipage}
+
+    \vfill
+
+    \begin{minipage}{0.2\textwidth}
+        \centering
+        \vspace{1.0cm} 
+        \includegraphics[width=5cm, keepaspectratio]{../uff.png} 
+    \end{minipage}
+    \hspace{2cm}
+    \begin{minipage}{0.4\textwidth}
+            \centering
+            \vspace{1.5cm} 
+            \rule{10cm}{0.5pt}\\[0.3cm]
+            {\large \textbf{Prof. Dr. Thiago Araujo}}\\
+            Coordenação de Seminários\\
+            Departamento de Física --- VFI/ICEx/UFF
+    \end{minipage}
+    \hspace{2cm}
+    \begin{minipage}{0.2\textwidth}
+        \centering
+        \vspace{1.0cm} 
+        \includegraphics[width=5cm, keepaspectratio]{../icex.png} 
+    \end{minipage}
+
+        % Espaço extra para a moldura não ficar colada no texto
+        \vspace{1.5cm}
+
+\end{center}
+\end{document}

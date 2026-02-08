@@ -1,0 +1,12 @@
+* Arxiv Update
+
+This is a simple script to view the daily updates from arXiv. We can
+set up a cron job to automate this process.
+
+** Files and Structure
+- In ~fields.org~, we write some keywords for the queries.
+- In ~authors.org~, we list the names of the authors.
+
+** Preparation
+Create a directory named =papers= beforehand.
+

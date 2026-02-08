@@ -1,0 +1,9 @@
+* *Scripts*
+
+Here I have some useful scripts I (sometimes) use(d).
+
+01. Git Status for my repositories
+02. Web scrapping for the PCI Concurso
+03. Arxiv update
+03. Who is in my network?
+

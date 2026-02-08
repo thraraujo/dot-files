@@ -1,0 +1,27 @@
+Assunto: Seminário de Física VFI: ({SPEAKER}, {AFFILIATION})
+
+Prezada comunidade acadêmica,
+
+No seminário desta semana, teremos a honra de receber {PRONOUN}
+{SPEAKER} ({AFFILIATION}), que apresentará uma palestra voltada
+especialmente para nosso corpo discente e colegas do instituto.
+
+Título: {TITLE}
+Resumo: {ABSTRACT}
+
+Informações do Evento:
+- Data: {DAY}
+- Horário do Seminário: 16h15 às 17h15
+- Coffee Break: 16h00 (Um momento para integração e conversa)
+- Local: Sala 302C (Auditório do Bloco C, 3º andar) — Campus Aterrado
+
+Este seminário foi organizado com foco especial na formação de
+estudantes da graduação, sendo uma excelente oportunidade para
+conhecer temas contemporâneos da Física de forma acessível e direta.
+
+Contamos com a presença de todas as pessoas!
+
+Atenciosamente,
+
+Thiago Araujo
+Coordenação de Seminários — VFI/UFF

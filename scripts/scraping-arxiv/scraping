@@ -1,0 +1,1 @@
+0 11 * * 1,2,3,4,5 /home/thiago/Work-repos/thraraujo.github.io/scripts/scraping-arxiv/arxiv.sh >> /home/thiago/Work-repos/thraraujo.github.io/scripts/scraping-arxiv/arxiv-logs/arxiv-$(date +\%F-\%H\%M).log 2>&1
