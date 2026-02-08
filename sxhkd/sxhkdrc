@@ -19,15 +19,8 @@ super + Escape
 	pkill -USR1 -x sxhkd && notify-send "sxhkd reloaded"
 
 # Browser
-# The VGA-1 monitor means that I am using my work computer
-if xrandr -q | grep -q '^VGA-1 connected'; then
-super + w
-    chromium
-else
 super + {_,shift +}w
     {vivaldi.vivaldi-stable, firefox}
-fi
-
 
 # lockscreen with i3lock
 super + alt + b
