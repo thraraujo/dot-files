@@ -1,2 +1,0 @@
-https://arxiv.org/abs/2602.05320 | Bethe ansatz solution to integrable bosonic cube networks | Lachlan Bennett, Phillip S. Isaac, Jon Links
-https://arxiv.org/abs/2510.27312 | Fusion approach for quantum integrable system associated with the $\mathfrak{gl}(1|1)$ Lie superalgebra | Xiaotian Xu, Wuxiao Wen, Tao Yang, Xin Zhang, Junpeng Cao
