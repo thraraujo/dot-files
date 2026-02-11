@@ -28,3 +28,6 @@ alias files='mount /dev/nvme0n1p4 /mnt'
 alias cal='ncal -b'
 
 alias comp='gpg -c --no-symkey-cache --s2k-mode 3 --s2k-digest-algo SHA512 --s2k-count 65011712'
+
+
+alias today='rg -A 15 -i 'schedule' $HOME/Work-repos/wiki/README.org'
