@@ -1,0 +1,3 @@
+https://arxiv.org/abs/2602.10981 | Correlators in the theory of Integral Discriminants | A. Morozov, Sh. Shakirov
+https://arxiv.org/abs/2508.13114 | SO(n) Affleck-Kennedy-Lieb-Tasaki states as conformal boundary states of integrable SU(n) spin chains | Yueshui Zhang, Ying-Hai Wu, Meng Cheng, Hong-Hao Tu
+https://arxiv.org/abs/2508.17534 | A vectorial Darboux transformation for integrable matrix versions of the Fokas-Lenells equation | Folkert M\"uller-Hoissen, Rusuo Ye
