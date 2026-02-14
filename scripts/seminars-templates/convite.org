@@ -7,7 +7,7 @@ UFF em Volta Redonda. Atualmente, estou na organização do nosso ciclo
 de seminários e gostaria de {PRONOUN} convidar para ministrar uma
 palestra presencial em nosso campus.
 
-Temos acompanhado suas contribuições na "{RESEARCH}" e
+Temos acompanhado suas contribuições na {RESEARCH} e
 acreditamos que seria uma oportunidade valiosa para nossa comunidade
 conhecer mais sobre os resultados da sua pesquisa.
 
@@ -29,7 +29,7 @@ Detalhes:
     - Local: Campus Aterrado, Volta Redonda/RJ.
     - Deslocamento: Infelizmente, o departamento possui limitações
       orçamentárias no momento e não conseguiremos custear as despesas
-      de deslocamento. No entanto, ficaremos honrados em lhe receber
+      de deslocamento. No entanto, ficaremos honrados em receber você
       para um almoço com a equipe docente antes do seminário.
 
 Acreditamos que sua presença será inspiradora para quem estuda
