@@ -11,5 +11,5 @@ alias clear-cache='sudo sysctl vm.drop_caches=3'
 alias cal='ncal -b'
 
 alias comp='gpg -c --no-symkey-cache --s2k-mode 3 --s2k-digest-algo SHA512 --s2k-count 65011712'
-alias today='rg -A 15 -i 'schedule' $HOME/Work-repos/wiki/README.org'
+alias today='rg -A 15 -i 'weekly-agenda' $HOME/Work-repos/wiki/README.org'
 alias work='cd $HOME/Work-repos/'
