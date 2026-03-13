@@ -4,11 +4,14 @@
 #+STARTUP: showeverything
 #+OPTIONS: toc:2
 
-# * TABLE OF CONTENTS :toc:
-# - [[#important-programs-to-load-first][IMPORTANT PROGRAMS TO LOAD FIRST]]
-  # - [[#melpa-package-manager][Melpa Package Manager]]
-  # - [[#load-evil-mode][Load Evil Mode]]
-# 
+    *TABLE OF CONTENTS*           :toc:
+        - IMPORTANT PROGRAMS TO LOAD FIRST
+        - AUTOCOMPLETION AND FONTS
+        - UI ELEMENTS
+        - ORG MODE
+        - PROJECTILE, MAGIT AND PDF-TOOLS
+        - LSP AND TREESITTER
+        - USER DEFINITIONS
 
 * IMPORTANT PROGRAMS TO LOAD FIRST
 
@@ -118,6 +121,7 @@ for a couple of days.
     ;;    :ensure-system-package libtool-bin)
 #+end_src
 
+
 * AUTOCOMPLETION AND FONTS
 
 ** Ivy and Counsel
@@ -200,6 +204,7 @@ for a couple of days.
 ;(set-face-attribute 'variable-pitch nil :font "Inconsolata Nerd Font 12")
 #+end_src
 
+
 * UI ELEMENTS
 
 ** Icons
@@ -221,14 +226,14 @@ for a couple of days.
 
 ;; IMPORTANT: Here I need to do M-x all-the-icons-install-fonts
 
-; Dired Icons
-(use-package all-the-icons-dired)
-(add-hook 'dired-mode-hook 'all-the-icons-dired-mode)
-
-; Remove all-the-icons
-(use-package nerd-icons-ibuffer)
-(use-package nerd-icons-ivy-rich)
-(use-package nerd-icons-completion)
+;; Dired Icons
+;(use-package all-the-icons-dired)
+;(add-hook 'dired-mode-hook 'all-the-icons-dired-mode)
+;
+;; Remove all-the-icons
+;(use-package nerd-icons-ibuffer)
+;(use-package nerd-icons-ivy-rich)
+;(use-package nerd-icons-completion)
 #+end_src
 
 ** Theme and modeline
@@ -253,10 +258,10 @@ for a couple of days.
 ;;   ;; Corrects (and improves) org-mode's native fontification.
 ;;   (doom-themes-org-config))
 
-;; Transparency
-(set-frame-parameter nil 'alpha-background 95)
-(add-to-list 'default-frame-alist '(alpha-background . 95))
-
+;;; Transparency
+;(set-frame-parameter nil 'alpha-background 95)
+;(add-to-list 'default-frame-alist '(alpha-background . 95))
+;
 ;; Themes
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
 
@@ -381,6 +386,7 @@ for a couple of days.
         (append '(("\\.plt\\'" . gnuplot-mode)) auto-mode-alist))
 #+end_src
 
+
 * PROJECTILE, MAGIT and PDF-TOOLS
 
 #+begin_src emacs-lisp
@@ -433,6 +439,7 @@ for a couple of days.
              ("b"  . pdf-view-set-slice-from-bounding-box)
              ("r"  . pdf-view-reset-slice)))
 #+end_src
+
 
 * LSP AND TREESITTER
 
@@ -536,7 +543,10 @@ Yasnippet and LSP are not compatible.
       '("~/Work-repos/wiki/databases/integrability-database.bib"))
 #+end_src
 
+
 * USER DEFINITIONS
+
+** Bookmarks, open-with and crux
 
 #+begin_src emacs-lisp
 
@@ -555,77 +565,6 @@ Yasnippet and LSP are not compatible.
   (global-set-key (kbd "C-c o") #'crux-open-with)
 
   ;; initial buffer
-  ;(setq initial-buffer-choice "~/Sync/projects/wiki/README.org")
+(setq initial-buffer-choice "~/Work-repos/wiki/README.org")
 #+end_src
 
-** Dashboard
-
-#+begin_src emacs-lisp
-  (require 'dashboard)
-  (dashboard-setup-startup-hook)
-  (setq initial-buffer-choice (lambda () (get-buffer-create dashboard-buffer-name)))
-
-  ;; Set the title
-  ;(setq dashboard-banner-logo-title "Emacs Dashboard")
-  (setq dashboard-banner-logo-title "Thiago's Dashboard")
-  ;; Set the banner
-  ;; (setq dashboard-startup-banner 'logo)
-  (setq dashboard-startup-banner "/home/thiago/Pictures/gnu-linux.png")
-  ;; Value can be:
-  ;;  - 'official which displays the official emacs logo.
-  ;;  - 'logo which displays an alternative emacs logo.
-  ;;  - an integer which displays one of the text banners
-  ;;    (see dashboard-banners-directory files).
-  ;;  - a string that specifies a path for a custom banner
-  ;;    currently supported types are gif/image/text/xbm.
-  ;;  - a cons of 2 strings which specifies the path of an image to use
-  ;;    and other path of a text file to use if image isn't supported.
-  ;;    ("path/to/image/file/image.png" . "path/to/text/file/text.txt").
-  ;;  - a list that can display an random banner,
-  ;;    supported values are: string (filepath), 'official, 'logo and integers.
-
-  ;; Content is not centered by default. To center, set
-  (setq dashboard-center-content t)
-  ;; vertically center content
-  (setq dashboard-vertically-center-content t)
-
-  ;; To disable shortcut "jump" indicators for each section, set
-  (setq dashboard-show-shortcuts nil)
-
-  ;; items
-  (setq dashboard-projects-backend 'projectile)
-
-  (setq dashboard-items '((recents   . 5)
-                          (bookmarks . 5)
-                          (projects  . 5)
-                          (agenda    . 5)
-                          (registers . 5)))
-#+end_src
-
-* Org-Roam
-
-Remember to install org-roam-ui
-
-I had some problems with sqlite, try to fix it later... or don't
-In any case, I am gonna comment all these things and try to build my work
-around some simpler tools, e.g. plain org mode. 
-
-#+begin_src emacs-lisp
-;; (use-package org-roam
-;;     :ensure t
-;;     :custom
-;;     (org-roam-directory (file-truename "/home/thiago/Documents/wiki/RoamNotes"))
-;;     :bind (("C-c n l" . org-roam-buffer-toggle)
-;;             ("C-c n f" . org-roam-node-find)
-;;             ("C-c n g" . org-roam-graph)
-;;             ("C-c n i" . org-roam-node-insert)
-;;             ("C-c n c" . org-roam-capture)
-;;             ;; Dailies
-;;             ("C-c n j" . org-roam-dailies-capture-today))
-;;     :config
-;;     ;; If you're using a vertical completion framework, you might want a more informative completion interface
-;;     (setq org-roam-node-display-template (concat "${title:*} " (propertize "${tags:10}" 'face 'org-tag)))
-;;     (org-roam-db-autosync-mode)
-;;     ;; If using org-roam-protocol
-;;     (require 'org-roam-protocol))
-#+end_src
