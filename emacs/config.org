@@ -540,7 +540,7 @@ Yasnippet and LSP are not compatible.
 (use-package helm-bibtex)
 (use-package ivy-bibtex)
 (setq bibtex-completion-bibliography
-      '("~/Work-repos/wiki/databases/integrability-database.bib"))
+      '("~/Work-repos/wiki/databases/libraries/library.bib"))
 #+end_src
 
 
