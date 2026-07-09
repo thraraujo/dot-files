@@ -14,3 +14,5 @@ alias comp='gpg -c --no-symkey-cache --s2k-mode 3 --s2k-digest-algo SHA512 --s2k
 alias work='cd $HOME/Work-repos/'
 
 alias sqlitebox='sqlite3 -cmd ".headers on" -cmd ".mode box"'
+
+alias libr='sqlitebox $HOME/Work-repos/open-research-library/c-database/database.db "select * from library"'
