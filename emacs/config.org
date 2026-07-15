@@ -297,6 +297,8 @@ for a couple of days.
   (setq scroll-conservatively 10000)
   (setq scroll-margin 8)
 
+  (setq-default fill-column 100)                     ; set how many characters we have in a line, linebreak
+
   (tool-bar-mode -1)                                 ; turn off the toolbar
   (menu-bar-mode -1)                                 ; turn off the menubar
   (scroll-bar-mode -1)                               ; turn off scrollbar
