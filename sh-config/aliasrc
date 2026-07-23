@@ -15,4 +15,4 @@ alias work='cd $HOME/Work-repos/'
 
 alias sqlitebox='sqlite3 -cmd ".headers on" -cmd ".mode box"'
 
-alias libr='sqlitebox $HOME/Work-repos/open-research-library/c-database/database.db "select * from library"'
+alias libr='sqlitebox $HOME/Work-repos/open-research-library/c-database/database.db "select * from library order by id"'
